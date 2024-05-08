@@ -1,0 +1,63 @@
+// active
+const hambuger = document.querySelector(".hambuger");
+const navMenu = document.querySelector(".nav-menu-mobile");
+
+
+hambuger.addEventListener("click", () => {
+    hambuger.classList.toggle("active");
+    navMenu.classList.toggle("active")
+})
+/*document.querySelectorAll(".nav-menu-mobile").forEach(n => n.
+    addEventListener("click", () => {
+        hambuger.classList.remove("active");
+        navMenu.classList.remove("active");
+    }))*/
+
+
+
+// add thêm item nếu trong menu có sub menu
+const menuItemMobile = document.querySelectorAll('.menu-mobile .nav-menu-mobile li');
+menuItemMobile.forEach(item => {
+    const subMenu = item.querySelector('ul.sub-menu');
+    if (subMenu) {
+        const iconSpan = document.createElement('span');
+        const icon = document.createElement('i');
+        icon.className = 'fa-solid fa-chevron-down'; // Replace with the class of your icon library, e.g., Font Awesome
+        iconSpan.appendChild(icon);
+        // Add the icon to the beginning of the <li> element
+        item.appendChild(iconSpan);
+    }
+});
+
+/* Click button xổ ra menu con */
+$('.menu-mobile .nav-menu-mobile li .sub-menu').hide();
+$(".menu-mobile .nav-menu-mobile li>span").click(function(){
+    $(this).parent().children("ul").toggle('');
+    $(this).find('.fa-chevron-down').toggleClass('icon-rotate');
+})
+
+
+
+$(document).ready(function(){
+    $(".owl-carousel").owlCarousel();
+  });
+
+
+//  Menu của bộ lọc
+  const menuFilter = document.querySelectorAll('.menu-filter li');
+  menuFilter.forEach(item => {
+    const subMenuFilter = item.querySelector('ul.sub-menu-filter');
+    if (subMenuFilter) {
+        const iconSpan = document.createElement('span');
+        const icon = document.createElement('i');
+        icon.className = 'fa-solid fa-chevron-down'; // Replace with the class of your icon library, e.g., Font Awesome
+        iconSpan.appendChild(icon);
+        // Add the icon to the beginning of the <li> element
+        item.appendChild(iconSpan);
+    }
+});
+
+$('.menu-filter .sub-menu-filter').show();
+$(".menu-filter li>span").click(function(){
+    $(this).parent().children("ul").toggle('');
+})

@@ -1,0 +1,35 @@
+@media screen and (max-width:990px) {
+    header .menu-mobile{
+        display: block;
+    }
+
+    header .menu-pc{
+        display: none;
+    }
+    .cards .card-item{
+        flex: 0 0 calc(50% - 20px); /* Chia đều ra 3 cột và áp dụng margin */
+        margin: 10px;
+        background-color: #f0f0f0; /* Màu nền thẻ */
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .filter-work-top .form-control {
+        flex-basis: 40%;
+        margin: 5px;
+         /* Khoảng cách giữa các phần tử trên màn hình nhỏ */
+    }
+    
+}
+@media screen and (max-width: 405px) {
+    .filter-work-top .form-control {
+        flex-basis: 100%;
+        margin: 5px;
+         /* Khoảng cách giữa các phần tử trên màn hình nhỏ */
+    }
+    .cards .card-item{
+        flex: 0 0 calc(100% - 20px); /* Chia đều ra 3 cột và áp dụng margin */
+    }
+}
