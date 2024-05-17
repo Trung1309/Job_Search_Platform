@@ -26,6 +26,7 @@ return new class extends Migration
             $table->foreign('id_nguoi_dung')->references('id_nguoi_dung')->on('users');
             $table->string('quy_mo')->nullable();
             $table->string('the_loai')->nullable();
+            $table->string('hinh_dai_dien')->nullable();
             $table->timestamps();
         });
     }

@@ -31,6 +31,11 @@ class Ward extends Model
         return $this->hasMany(User::class, 'id_phuong_xa', 'id_phuong_xa');
     }
 
+    public function jobs()
+    {
+        return $this->hasMany(Job::class, 'id_phuong_xa', 'id_phuong_xa');
+    }
+
 
 
 }

@@ -24,9 +24,11 @@ return new class extends Migration
             $table->foreign('id_phuong_xa')->references('id_phuong_xa')->on('wards');
             $table->unsignedBigInteger('id_quyen')->nullable();
             $table->foreign('id_quyen')->references('id_quyen')->on('roles');
-            $table->string('mat_khau')->nullable();
+            $table->string('password')->nullable();
             $table->string('kinh_nghiem')->nullable();
             $table->string('ky_nang')->nullable();
+            $table->string('hinh_dai_dien')->nullable();
+            $table->string('cv')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

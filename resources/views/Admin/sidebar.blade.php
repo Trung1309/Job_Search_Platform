@@ -30,10 +30,10 @@
                         </a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="{{route('admin-myJob-all')}}"><i class="fa fa-angle-right"></i>Bài đăng của tôi</a>
+                                <a href="{{route('getAllMyJob')}}"><i class="fa fa-angle-right"></i>Bài đăng của tôi</a>
                             </li>
                             <li>
-                                <a href="{{route('show-form-add-job')}}"><i class="fa fa-angle-right"></i>Đăng bài tuyển dụng</a>
+                                <a href="{{route('addJob')}}"><i class="fa fa-angle-right"></i>Đăng bài tuyển dụng</a>
                             </li>
                         </ul>
 
@@ -62,10 +62,10 @@
                         </a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="{{route('show-all-myPost')}}"><i class="fa fa-angle-right"></i>Tin tức của tôi</a>
+                                <a href="{{route('getAllMyNews')}}"><i class="fa fa-angle-right"></i>Tin tức của tôi</a>
                             </li>
                             <li>
-                                <a href="{{route('add-post')}}"><i class="fa fa-angle-right"></i>Đăng tin mới</a>
+                                <a href="{{route('addNews')}}"><i class="fa fa-angle-right"></i>Đăng tin mới</a>
                             </li>
 
                         </ul>
@@ -78,10 +78,10 @@
                         </a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="{{route('show-all-position')}}"><i class="fa fa-angle-right"></i>Danh sách</a>
+                                <a href="{{route('getAllPositon')}}"><i class="fa fa-angle-right"></i>Danh sách</a>
                             </li>
                             <li>
-                                <a href="{{route('add-position')}}"><i class="fa fa-angle-right"></i>Thêm vị trí mới</a>
+                                <a href="{{route('addPosition')}}"><i class="fa fa-angle-right"></i>Thêm vị trí mới</a>
                             </li>
 
                         </ul>
@@ -94,10 +94,10 @@
                         </a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="{{route('show-all-level')}}"><i class="fa fa-angle-right"></i>Danh sách</a>
+                                <a href="{{route('getAllLevel')}}"><i class="fa fa-angle-right"></i>Danh sách</a>
                             </li>
                             <li>
-                                <a href="{{route('add-level')}}"><i class="fa fa-angle-right"></i>Thêm trình độ</a>
+                                <a href="{{route('addLevel')}}"><i class="fa fa-angle-right"></i>Thêm trình độ</a>
                             </li>
                         </ul>
                     </li>
@@ -109,10 +109,10 @@
                         </a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="{{route('show-all-category')}}"><i class="fa fa-angle-right"></i>Danh sách</a>
+                                <a href="{{route('getAllCategory')}}"><i class="fa fa-angle-right"></i>Danh sách</a>
                             </li>
                             <li>
-                                <a href="{{route('add-category')}}"><i class="fa fa-angle-right"></i>Thêm thể loại công việc</a>
+                                <a href="{{route('addCategory')}}"><i class="fa fa-angle-right"></i>Thêm thể loại công việc</a>
                             </li>
 
                         </ul>
@@ -124,8 +124,19 @@
                             <span>Trang chủ</span></a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-angle-right text-yellow"></i>
-                            <span>Đăng xuất</span></a>
+                        <a href="{{route('getProfile')}}"><i class="fa fa-angle-right text-red"></i>
+                            <span>Thông tin cá nhân</span></a>
+                    </li>
+                    <li>
+                        <a href="" style="display: flex !important">
+                            <i class="fa fa-angle-right text-yellow"></i>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit"
+                                    style="background: none;border: none; outline: none;">Đăng
+                                    xuất</button>
+                            </form>
+                        </a>
                     </li>
                 </ul>
             </div>

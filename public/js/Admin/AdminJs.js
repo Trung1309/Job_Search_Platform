@@ -1,7 +1,7 @@
-const hinhDaiDien = document.getElementById('hinhDaiDien');
+const avtNews = document.getElementById('avtNews');
 const imagePreview = document.getElementById('imagePreview');
 
-hinhDaiDien.addEventListener('change', function() {
+avtNews.addEventListener('change', function() {
   const file = this.files[0];
 
   if (file) {
@@ -14,3 +14,6 @@ hinhDaiDien.addEventListener('change', function() {
     reader.readAsDataURL(file);
   }
 });
+
+// up hình đại diện
+

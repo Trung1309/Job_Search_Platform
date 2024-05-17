@@ -17,7 +17,8 @@ class Bussiness extends Model
         'ma_so_thue',
         'id_nguoi_dung',
         'quy_mo',
-        'the_loai'
+        'the_loai',
+        'hinh_dai_dien'
     ];
 
     protected $primary = 'id_doanh_nghiep';
@@ -30,5 +31,10 @@ class Bussiness extends Model
     public function wards()
     {
         return $this->belongsTo(Ward::class,'id_phuong_xa','id_phuong_xa');
+    }
+
+    public function jobs()
+    {
+        return $this->hasMany(Job::class, 'id_doanh_nghiep', 'id_doanh_nghiep');
     }
 }

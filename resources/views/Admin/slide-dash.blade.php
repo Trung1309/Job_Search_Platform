@@ -1,7 +1,7 @@
 <div class="charts">
     <div class="mid-content-top charts-grids">
       <div class="middle-content">
-        <h4 class="title">Carousel Slider</h4>
+        <h4 class="title">Góc làm việc</h4>
         <!-- start content_slider -->
         <div id="owl-demo" class="owl-carousel text-center">
           <div class="item">

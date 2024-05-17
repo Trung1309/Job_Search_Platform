@@ -141,6 +141,6 @@
             </div>
         </section>
     </main>
-    
+
     @include('footer')
 @endsection

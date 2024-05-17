@@ -10,65 +10,42 @@
             <div class="main-page">
                 <div class="charts-grids">
                     <h1 class="text-center" style="margin-bottom: 20px">{{$title}}</h1>
+                    @if (Session::has('success'))
+                        <div class="alert alert-success">{{ Session::get('success') }}</div>
+                    @endif
                     <table class="table table-bordered">
                         <thead class="thead-dark" >
                             <tr style="text-align: center">
-                                <th scope="col">STT</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                                <th scope="col">Tuỳ chọn</th>
+                                <th scope="col" class="text-center">STT</th>
+                                <th scope="col" class="text-center">Họ tên</th>
+                                <th scope="col" class="text-center">Email</th>
+                                <th scope="col" class="text-center">Số điện thoại</th>
+                                <th scope="col" class="text-center">Kinh nghiệm</th>
+                                <th scope="col" class="text-center">Kỹ năng</th>
+                                <th scope="col" class="text-center">Tuỳ chọn</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr style="text-align: center">
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>
-                                    <div class="option-btn">
-                                        <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                                        <a href="#" class="btn btn-primary"><i class="fa fa-pen-to-square"></i></a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr style="text-align: center">
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>
-                                    <div class="option-btn">
-                                        <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                                        <a href="#" class="btn btn-primary"><i class="fa fa-pen-to-square"></i></a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr style="text-align: center">
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>
-                                    <div class="option-btn">
-                                        <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                                        <a href="#" class="btn btn-primary"><i class="fa fa-pen-to-square"></i></a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr style="text-align: center">
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>
-                                    <div class="option-btn">
-                                        <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                                        <a href="#" class="btn btn-primary"><i class="fa fa-pen-to-square"></i></a>
-                                    </div>
-                                </td>
-                            </tr>
+                            @foreach ($user as $key => $item )
+                                <tr style="text-align: center">
+                                    <td>{{$key + 1}}</td>
+                                    <td>{{$item->ho_ten}}</td>
+                                    <td>{{$item->email}}</td>
+                                    <td>{{$item->sdt}}</td>
+                                    <td>{{$item->kinh_nghiem}}</td>
+                                    <td>{{$item->ky_nang}}</td>
+                                    <td>
+                                        <div class="option-btn d-flex" style="display: flex; justify-content: center; align-items: center">
+                                            <form action="{{route('deleteMember',$item->id_nguoi_dung)}}" method="POST" style="margin-right: 10px">
+                                                @csrf
+                                                <button onclick="return confirm('Bạn có chắc chắn muốn xoá ứng viên {{$item->ho_ten}} ?')"
+                                                    type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                            </form>
+                                            <a href="" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
 
                         </tbody>
                     </table>

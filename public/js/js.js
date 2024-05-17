@@ -61,3 +61,42 @@ $('.menu-filter .sub-menu-filter').show();
 $(".menu-filter li>span").click(function(){
     $(this).parent().children("ul").toggle('');
 })
+
+
+const hinhDaiDien = document.getElementById('hinhDaiDien');
+const imagePreview = document.getElementById('imagePreview');
+
+hinhDaiDien.addEventListener('change', function() {
+  const file = this.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+      imagePreview.src = e.target.result;
+    }
+
+    reader.readAsDataURL(file);
+  }
+});
+
+// up hình đại diện
+
+$(document).ready(function(){
+    $('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:5
+            }
+        }
+    })
+});

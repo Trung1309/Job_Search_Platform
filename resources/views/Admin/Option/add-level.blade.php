@@ -11,10 +11,11 @@
                 <div class="charts-grids">
                     <h1 class="text-center" style="text-align: center">{{ $title }}</h1>
                     <div class="form-group">
-                        <form role="form" method="post" class="form-horizontal style-form" enctype="multipart/form-data">
+                        <form action="{{route('addLevelPost')}}" role="form" method="post" class="form-horizontal style-form" enctype="multipart/form-data">
+                            @csrf
                             <div class="form-group p-15">
-                                <label for="trinhDo ">Trình độ học vấn</label>
-                                <input type="text" name="trinhDo" id="trinhDo" class="form-control" placeholder=""
+                                <label for="ten_trinh_do ">Trình độ học vấn</label>
+                                <input type="text" name="ten_trinh_do" id="trinhDo" class="form-control" placeholder=""
                                     aria-describedby="helpId">
                             </div>
                             <div class="form-group p-15">

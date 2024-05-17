@@ -23,53 +23,59 @@
                             <p class="text-center">Muốn tìm kiếm nguồn nhân sự cho doanh nghiệp của mình</p>
                             <form action="{{route('registerCompany')}}" method="POST">
                                 @csrf
+                                <input type="hidden" name="user_type" value="company">
                                 <div class="form-group">
-                                    <label for="inputName">Tên công ty</label>
-                                    <input type="text" name="ten_doanh_nghiep" id="inputName" class="form-control w-100"
+                                    <label for="inputName">Tên doanh nghiệp</label>
+                                    <input value="{{old('ten_doanh_nghiep')}}" type="text" name="ten_doanh_nghiep" id="inputName" class="form-control w-100"
                                         placeholder="Tên công ty" aria-describedby="helpId">
                                     @error('ten_doanh_nghiep')
-                                        <p class="text-danger">{{ $message }}</p>
+                                        <small id="helpId" class="form-text text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="inputContactName">Tên liên lạc</label>
-                                    <input type="text" name="ho_ten" id="inputContactName" class="form-control w-100"
+                                    <input value="{{old('ho_ten')}}" type="text" name="ho_ten" id="inputContactName" class="form-control w-100"
                                         placeholder="Tên Liên Lạc" aria-describedby="helpId">
                                     @error('ho_ten')
-                                        <p class="text-danger">{{ $message }}</p>
+                                        <small id="helpId" class="form-text text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="inputPhone">Số điện thoại</label>
-                                    <input type="text" name="sdt" id="inputPhone" class="form-control w-100"
+                                    <input value="{{old('sdt')}}" type="text" name="sdt" id="inputPhone" class="form-control w-100"
                                         placeholder="Số điện thoại" aria-describedby="helpId">
                                     @error('sdt')
-                                        <p class="text-danger">{{ $message }}</p>
+                                        <small id="helpId" class="form-text text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="inputEmail">Email</label>
-                                    <input type="email" name="email" id="inputEmail" class="form-control w-100"
+                                    <input value="{{old('email')}}" type="email" name="email" id="inputEmail" class="form-control w-100"
                                         placeholder="Email" aria-describedby="helpId">
                                     @error('email')
-                                        <p class="text-danger">{{ $message }}</p>
+                                        <small id="helpId" class="form-text text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="inputPass">Mật khẩu</label>
-                                    <input type="password" name="mat_khau" id="inputPass" class="form-control w-100"
+                                    <input value="{{old('password')}}" type="password" name="password" id="inputPass" class="form-control w-100"
                                         placeholder="Mật khẩu" aria-describedby="helpId">
-                                    @error('mat_khau')
-                                        <p class="text-danger">{{ $message }}</p>
+                                    @error('password')
+                                        <small id="helpId" class="form-text text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="inputCode">Mã số thuế</label>
-                                    <input type="text" name="ma_so_thue" id="inputCode" class="form-control w-100"
+                                    <input {{old('ma_so_thue')}} type="text" name="ma_so_thue" id="inputCode" class="form-control w-100"
                                         placeholder="Mã số thuế" aria-describedby="helpId">
                                     @error('ma_so_thue')
-                                        <p class="text-danger">{{ $message }}</p>
+                                        <small id="helpId" class="form-text text-danger">{{ $message }}</small>
                                     @enderror
+                                </div>
+                                <div class="form-group mb-3">
+                                    <strong>Google recaptcha :</strong>
+                                    {!! NoCaptcha::renderJs() !!}
+                                    {!! NoCaptcha::display() !!}
                                 </div>
 
                                 <p>By clicking Sign Up, you agree to our <a href=""><strong>Terms of Use</strong></a>
@@ -77,7 +83,7 @@
 
                                 <button type="submit" class="btn btn-orange w-100">Đăng kí ngay</button>
                             </form>
-                            <a href="{{ route('dang-nhap') }}" class="btn d-block m-auto">Login <i
+                            <a href="{{ route('indexLogin') }}" class="btn d-block m-auto">Login <i
                                     class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>

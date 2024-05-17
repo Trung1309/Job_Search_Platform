@@ -70,8 +70,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         });
     </script>
     <!-- //requried-jsfiles-for owl -->
-</head>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/css/multi-select-tag.css">
+    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/js/multi-select-tag.js"></script>
 <body class="cbp-spmenu-push">
     @yield('content-admin')
     <!-- new added graphs chart js-->
@@ -266,6 +267,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ asset('js/Admin/bootstrap.js') }}"></script>
     <script src="{{ asset('js/Admin/AdminJs.js') }}"></script>
+    <script src="{{ asset('js/Admin/chatbot.js') }}"></script>
+    <script src="{{ asset('js/location.js')}}"></script>
     <!-- //Bootstrap Core JavaScript -->
     <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
     <script>

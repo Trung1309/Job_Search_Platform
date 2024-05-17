@@ -16,6 +16,9 @@ h1, h2, h3 {margin: 0;}
 ul, ol {margin: 0;}
 p {margin: 0;}
 
+.t-cen{
+    text-align: center;
+}
 .pd-ri{
     padding-right: 10px;
 }
@@ -8480,6 +8483,51 @@ h4.asd label {
 	}
 }
 /*--//responsive-design---*/
+
+
+/* Hệ thống chat bot */
+.chat-bot{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background: #000;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+    z-index: 1000;
+}
+.content-chat {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.chat-bot i{
+    color: #fff;
+    font-size: 30px;
+}
+.show-bot{
+    position: absolute;
+    top: -510px;
+    left: -420px;
+    z-index: 1000;
+    width: 500px;
+    height: 500px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 20px;
+    overflow: hidden;
+    display: none;
+}
+.show-bot.active{
+    display: block;
+}
+
+
+
 
 
 

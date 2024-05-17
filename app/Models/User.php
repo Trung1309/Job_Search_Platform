@@ -25,9 +25,11 @@ class User extends Authenticatable
         'sdt',
         'id_phuong_xa',
         'id_quyen',
-        'mat_khau',
+        'password',
         'kinh-nghiem',
-        'ky_nang'
+        'ky_nang',
+        'hinh_dai_dien',
+        'cv'
     ];
 
     protected $primaryKey = 'id_nguoi_dung';
@@ -46,6 +48,20 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsTo(Role::class,'id_quyen','id_quyen');
+    }
+
+    public function members()
+    {
+        return $this->hasMany(Member::class, 'id_nguoi_dung', 'id_nguoi_dung');
+    }
+
+    public function news(){
+        return $this->belongsTo(News::class,'id_nguoi_dung','id_nguoi_dung');
+    }
+
+    public function isCompany()
+    {
+        return $this->id_quyen === 2;
     }
     /**
      * The attributes that should be hidden for serialization.

@@ -12,6 +12,15 @@ a{
 }
 
 
+.custom-file-upload{
+    border: 1px solid black;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px;
+}
+
 .bg-orange{
     background: rgb(255,224,190);
     background: radial-gradient(circle, rgba(255,224,190,1) 0%, rgba(242,184,132,1) 89%);
@@ -37,7 +46,7 @@ header{
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 header .menu-pc{
-    
+
 }
 header .menu-pc .menu{
     display: flex;
@@ -86,7 +95,7 @@ header .menu-pc .menu .nav-menu-pc .nav-menu li .avt-user-pc{
     border-radius: 50%;
     overflow: hidden;
     margin-left: 10px;
-    
+
 }
 header .menu-pc .menu .nav-menu-pc .nav-menu li .avt-user-pc img{
     width: 100%;
@@ -151,7 +160,7 @@ header .menu-mobile .nav-menu-mobileTop{
 header .menu-mobile .logo-avt-mobile{
     width: 200px;
     height: 70px;
-    
+
  }
 header .menu-mobile .logo-avt-mobile img{
     width: 100%;
@@ -169,13 +178,13 @@ header .menu-mobile .nav-menu-mobile{
 header .menu-mobile .nav-menu-mobile.active{
     display: block;
     height: 100%;
-    
+
 }
 header .menu-mobile .nav-menu-mobile li{
     list-style: none;
     position: relative;
     padding: 10px;
-    
+
 }
 
 header .menu-mobile .nav-menu-mobile li a {
@@ -374,12 +383,12 @@ section .desc-section{
     align-items: center;
 }
 
-.tech-slider .tech-slider-item .tech-avt{
-    width: 80%;
-    height: 80%;
-    
+.tech-avt{
+    width: 150px;
+    height: 150px;
+
 }
-.tech-slider .tech-slider-item .tech-avt img{
+.tech-avt img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -414,7 +423,7 @@ section .desc-section{
     font-size: 25px;
 }
 .slick-slider span i{
-    
+
 }
 
 
@@ -494,7 +503,7 @@ footer{
 .company-cards{
     display: flex;
     flex-direction: column;
-    
+
 }
 .company-cards .company-item{
     display: flex;
@@ -548,7 +557,7 @@ footer{
     list-style: none;
     margin-right: 10px;
     background: #ffe1be;
-    
+
     color: #b97200;
     padding: 2px 5px;
     border-radius: 5px;
@@ -639,7 +648,7 @@ footer{
 
 #section-header-job{
     background: #2c3e50;
-    
+
 }
 .widget{
     margin-bottom: 20px;
@@ -687,4 +696,47 @@ footer{
 .widget .user-post .user-bottom ul li{
     font-size: 15px;
 }
+
+
+/* Hệ thống chat bot */
+.chat-bot{
+
+    background: #d35400;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+    z-index: 1000;
+}
+.content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.chat-bot i{
+    color: #fff;
+    font-size: 30px;
+}
+.show-bot{
+    position: absolute;
+    top: -510px;
+    left: -420px;
+    z-index: 1000;
+    width: 500px;
+    height: 500px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 20px;
+    overflow: hidden;
+    display: none;
+}
+.show-bot.active{
+    display: block;
+}
+
 

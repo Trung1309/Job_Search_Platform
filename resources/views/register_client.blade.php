@@ -18,49 +18,57 @@
                         <div class="form-login bg-white p-3 w-100 "  >
                             <h2 class="text-center">Đăng kí làm ứng viên</h2>
                             <p class="text-center">Nền tảng tìm kiếm việc làm tại TP Đà Nẵng</p>
-                            <form action="">
+                            <form action="{{route('registerClient')}}" method="POST">
+                                {{-- <input type="hidden" name="user_type" value="client"> --}}
+                                @csrf
                                 <div class="form-group">
                                     <label for="inputName">Họ và tên</label>
-                                    <input  type="text" name="hoTen" id="inputName" class="form-control w-100" placeholder="Họ và tên"
+                                    <input value="{{old('ho_ten')}}"  type="text" name="ho_ten" class="form-control w-100" placeholder="Họ và tên"
                                         aria-describedby="helpId">
+                                    @error('ho_ten')
+                                        <small id="helpId" class="form-text text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputPhone">Số điện thoại</label>
-                                    <input  type="text" name="soDienThoai" id="inputPhone" class="form-control w-100" placeholder="Số điện thoại"
+                                    <label >Số điện thoại</label>
+                                    <input value="{{old('sdt')}}"  type="text" name="sdt"  class="form-control w-100" placeholder="Số điện thoại"
                                         aria-describedby="helpId">
+                                    @error('sdt')
+                                        <small id="helpId" class="form-text text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="inputEmail">Email</label>
-                                    <input  type="email" name="email" id="inputEmail" class="form-control w-100" placeholder="Email"
+                                    <input value="{{old('email')}}"  type="email" name="email"  class="form-control w-100" placeholder="Email"
                                         aria-describedby="helpId">
+                                    @error('email')
+                                        <small id="helpId" class="form-text text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputPass">Mật khẩu</label>
-                                    <input  type="password" name="matKhau" id="inputPass" class="form-control w-100" placeholder="Mật khẩu"
+                                    <label>Mật khẩu</label>
+                                    <input value="{{old('password')}}"  type="password" name="password"  class="form-control w-100" placeholder="Mật khẩu"
                                         aria-describedby="helpId">
+                                    @error('password')
+                                        <small id="helpId" class="form-text text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
-                                <div class="form-group">
-                                    <label for="input">Kỹ Năng</label>
-                                    <select  class="form-control w-100  " name="countries" id="countries" multiple>
-                                        <option value="1">Afghanistan</option>
-                                        <option value="2">Australia</option>
-                                        <option value="3">Germany</option>
-                                        <option value="4">Canada</option>
-                                        <option value="5">Russia</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="input">Kinh nghiệm làm việc</label>
-                                    <select class="form-control w-100 ">
-                                        <option value="1">Dưới 1 năm</option>
-                                        <option value="2">2-3 năm</option>
-                                        <option value="3">3-4 năm</option>
-                                        <option value="4">trên 5 năm</option>
+                                    <select class="form-control w-100 " name="kinh_nghiem">
+                                        <option value="{{old('kinh_nghiem')}}" selected disabled>Vui lòng chọn</option>
+                                        <option value="Dưới 1 năm">Dưới 1 năm</option>
+                                        <option value="2-3 năm">2-3 năm</option>
+                                        <option value="3-4 năm">3-4 năm</option>
+                                        <option value="trên 5 năm">trên 5 năm</option>
                                     </select>
-                                </div>
+                                    @error('kinh_nghiem')
+                                        <small id="helpId" class="form-text text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div> --}}
                                 <button type="submit" class="btn btn-orange w-100">Đăng kí ngay</button>
                             </form>
-                            <a href="{{route('dang-nhap')}}" class="btn d-block m-auto">Login <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="{{route('indexLogin')}}" class="btn d-block m-auto">Login <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>

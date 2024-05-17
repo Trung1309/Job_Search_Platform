@@ -7,42 +7,45 @@
         <!-- //header-ends -->
         <!-- main content start-->
         <div id="page-wrapper">
+            <object data="{{asset('pdf/pppp.pdf')}}" type="application/pdf"  width="330px" height="600px">
+                <iframe src="{{asset('pdf/pppp.pdf')}}" type="application/pdf">
+            </object>
             <div class="main-page">
                 <div class="row">
                     <div class="col-md-6 widget ">
                         <div class="r3_counter_box">
-                            <i class="pull-left fa fa-dollar icon-rounded"></i>
+                            <i class="pull-left fa fa-laptop icon-rounded"></i>
                             <div class="stats">
-                                <h5><strong>$452</strong></h5>
-                                <span>Total Revenue</span>
+                                <h5><strong>{{$jobCount}}</strong></h5>
+                                <span>Số lượng công việc</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 widget m-1">
                         <div class="r3_counter_box">
-                            <i class="pull-left fa fa-laptop user1 icon-rounded"></i>
+                            <i class="pull-left fa fa-users user1 icon-rounded"></i>
                             <div class="stats">
-                                <h5><strong>$1019</strong></h5>
-                                <span>Online Revenue</span>
+                                <h5><strong>{{$userCount}}</strong></h5>
+                                <span>Số lượng ứng viê<nav></nav></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 widget m-1">
                         <div class="r3_counter_box">
-                            <i class="pull-left fa fa-money user2 icon-rounded"></i>
+                            <i class="pull-left fa fa-building user2 icon-rounded"></i>
                             <div class="stats">
-                                <h5><strong>$1012</strong></h5>
-                                <span>Expenses</span>
+                                <h5><strong>{{$bussinessCount}}</strong></h5>
+                                <span>Số lượng doanh nghiệp</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6 widget m-1">
                         <div class="r3_counter_box">
-                            <i class="pull-left fa fa-users dollar2 icon-rounded"></i>
+                            <i class="pull-left fa fa-pager dollar2 icon-rounded"></i>
                             <div class="stats">
-                                <h5><strong>1450</strong></h5>
-                                <span>Total Users</span>
+                                <h5><strong>{{$newCount}}</strong></h5>
+                                <span>Số lượng tin tức</span>
                             </div>
                         </div>
                     </div>
