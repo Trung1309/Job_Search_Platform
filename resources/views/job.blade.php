@@ -60,81 +60,34 @@
                                 </form>
                             </div>
                             <div class="company-cards">
+                                @foreach ($job as $key => $item)
                                 <div class="company-item">
-                                    <div class="company-avt">
-                                        <img src="{{asset('images/company-bap.png')}}" alt="">
-                                    </div>
                                     <div class="company-content">
-                                        <a href="" class="company-title">Lập trình viên</a>
-                                        <div class="company-name">Công ty công nghệ Rikkei</div>
+                                        <a href="" class="company-title">{{$item->ten_cong_viec}}</a>
+                                        <div class="company-name">{{$item->bussinesses->ten_doanh_nghiep}}</div>
                                         <ul class="company-skill">
-                                            <li>PHP</li>
-                                            <li>Java</li>
-                                            <li>C++</li>
+                                            @php
+                                                $skills = explode('/',$item->ky_nang)
+                                            @endphp
+                                            @foreach ($skills as $skill )
+                                                <li>{{$skill}}</li>
+                                            @endforeach
                                         </ul>
-                                        <div class="company-desc">Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit. Ad debitis illum facilis, accusantium tenetur veritatis deleniti
-                                            voluptatibus deserunt quaerat. Omnis eligendi reiciendis cum eos molestiae
-                                            porro ea beatae tempora neque!
+                                        <div class="company-desc">
+                                            {!!$item->mo_ta!!}
                                         </div>
                                         <ul class="company-bottom">
                                             <li><i class="fa-solid fa-dollar-sign"></i>
-                                                5tr - 6tr</li>
+                                               {{$item->muc_luong}}
+                                            </li>
                                             <li><i class="fa-solid fa-location-dot"></i>
-                                                Hà Nội</li>
+                                                {{$item->wards->districts->ten_quan_huyen}}
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="company-item">
-                                    <div class="company-avt">
-                                        <img src="{{asset('images/company-bap.png')}}" alt="">
-                                    </div>
-                                    <div class="company-content">
-                                        <a href="" class="company-title">Lập trình viên</a>
-                                        <div class="company-name">Công ty công nghệ Rikkei</div>
-                                        <ul class="company-skill">
-                                            <li>PHP</li>
-                                            <li>Java</li>
-                                            <li>C++</li>
-                                        </ul>
-                                        <div class="company-desc">Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit. Ad debitis illum facilis, accusantium tenetur veritatis deleniti
-                                            voluptatibus deserunt quaerat. Omnis eligendi reiciendis cum eos molestiae
-                                            porro ea beatae tempora neque!
-                                        </div>
-                                        <ul class="company-bottom">
-                                            <li><i class="fa-solid fa-dollar-sign"></i>
-                                                5tr - 6tr</li>
-                                            <li><i class="fa-solid fa-location-dot"></i>
-                                                Hà Nội</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="company-item">
-                                    <div class="company-avt">
-                                        <img src="{{asset('images/company-bap.png')}}" alt="">
-                                    </div>
-                                    <div class="company-content">
-                                        <a href="" class="company-title">Lập trình viên</a>
-                                        <div class="company-name">Công ty công nghệ Rikkei</div>
-                                        <ul class="company-skill">
-                                            <li>PHP</li>
-                                            <li>Java</li>
-                                            <li>C++</li>
-                                        </ul>
-                                        <div class="company-desc">Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit. Ad debitis illum facilis, accusantium tenetur veritatis deleniti
-                                            voluptatibus deserunt quaerat. Omnis eligendi reiciendis cum eos molestiae
-                                            porro ea beatae tempora neque!
-                                        </div>
-                                        <ul class="company-bottom">
-                                            <li><i class="fa-solid fa-dollar-sign"></i>
-                                                5tr - 6tr</li>
-                                            <li><i class="fa-solid fa-location-dot"></i>
-                                                Hà Nội</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                @endforeach
+
                             </div>
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">

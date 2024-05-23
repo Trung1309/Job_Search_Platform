@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Level;
+use App\Models\Position;
 use App\Models\Role;
 use App\Models\Skill;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -29,6 +30,14 @@ class DatabaseSeeder extends Seeder
 
         if(Level::count()==0){
             $this->call(LevelSeeder::class);
+        }
+
+        if(Category::count()==0){
+            $this->call(CategorySeeder::class);
+        }
+
+        if(Position::count()==0){
+            $this->call(PositionSeeder::class);
         }
 
 

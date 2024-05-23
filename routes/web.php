@@ -34,7 +34,7 @@ use App\Http\Controllers\Admin\ADNewsController;
 Route::get('/', [HomeController::class,'index'])->name('home');
 
 Route::get('/cong-viec', [JobController::class,'index'])->name('cong-viec');
-Route::get('/cong-ty', [CompanyController::class,'index'])->name('cong-ty');
+Route::get('/cong-ty', [CompanyController::class,'getAllCompany'])->name('getAllCompany');
 Route::get('/lien-he', [ContactController::class,'index'])->name('lien-he');
 
 Route::get('/dang-nhap', [LoginController::class,'indexLogin'])->name('indexLogin');
@@ -58,11 +58,14 @@ Route::post('/dang-ki-doanh-nghiep', [RegisterController::class,'registerCompany
 Route::get('/tin-tuc', [NewsController::class,'index'])->name('tin-tuc');
 
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin','check.role'], function () {
+Route::group(['prefix' => 'quan-li', 'middleware' => 'auth.admin','check.role'], function () {
     // Các route của trang quản trị
     Route::get('/',[DashController::class,'index'])->name('admin-home');
+    Route::get('/thong-tin-cong-ty/{company_id}',[CompanyController::class,'getProfileCompany'])->name('getProfileCompany');
+    Route::put('/thong-tin-cong-ty/{company_id}',[CompanyController::class,'updateCompanyPost'])->name('updateCompanyPost');
 
-    Route::get('/cong-viec-doanh-nghiep',[AdminJobController::class,'getAllMyJob'])->name('getAllMyJob');
+    Route::get('/quan-li-bai-dang',[AdminJobController::class,'getAllJob'])->name('getAllJob');
+    Route::get('/bai-dang-tuyen-dung',[AdminJobController::class,'getAllMyJob'])->name('getAllMyJob');
     Route::get('/dang-bai-tuyen-dung',[AdminJobController::class,'addJob'])->name('addJob');
     Route::post('/dang-bai-tuyen-dung',[AdminJobController::class,'addJobPost'])->name('addJobPost');
     Route::get('/cap-nhat-bai-dang/{job_id}',[AdminJobController::class,'updateJob'])->name('updateJob');
@@ -70,8 +73,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin','check.role'], f
     Route::post('/xoa-bai-dang/{job_id}',[AdminJobController::class,'deleteJob'])->name('deleteJob');
 
 
-
-    Route::get('/tat-ca-ung-vien',[MemberController::class,'getAllMember'])->name('show-all-member');
+    Route::get('/tat-ca-doanh-nghiep',[MemberController::class,'getAllCompanyByAdmin'])->name('getAllCompanyByAdmin');
+    Route::get('/tat-ca-ung-vien',[MemberController::class,'getAllMember'])->name('getAllMember');
     Route::get('/tat-ca-ung-vien-cong-ty',[MemberController::class,'getAllMyMember'])->name('show-all-my-member');
     Route::post('/xoa-ung-vien/{member_id}',[MemberController::class,'deleteMember'])->name('deleteMember');
 
@@ -103,7 +106,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin','check.role'], f
     });
 
     Route::prefix('tin-tuc')->group(function () {
-        Route::get('/',[ADNewsController::class,'getAllMyNews'])->name('getAllMyNews');
+        Route::get('/tat-ca-tin-tuc',[ADNewsController::class,'getAllNews'])->name('getAllNews');
+        Route::get('/tin-tuc-cua-toi',[ADNewsController::class,'getAllMyNews'])->name('getAllMyNews');
         Route::get('/dang-tin-tuc',[ADNewsController::class,'addNews'])->name('addNews');
         Route::post('/dang-tin-tuc',[ADNewsController::class,'addNewsPost'])->name('addNewsPost');
         Route::get('/cap-nhat-tin-tuc/{news_id}',[ADNewsController::class,'updateNews'])->name('updateNews');

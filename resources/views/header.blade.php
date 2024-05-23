@@ -15,7 +15,7 @@
                 <div class="nav-menu-pc">
                     <ul class="nav-menu">
                         <li>
-                            <a href="{{ route('cong-ty') }}">
+                            <a href="{{ route('getAllCompany') }}">
                                 <i class="fa-solid fa-building"></i>
                                 <span>Doanh nghiệp</span>
                             </a>
@@ -52,7 +52,7 @@
                                     alt="">
                                 <ul class="avt-option">
                                     @auth
-                                        @if (Auth::user()->id_quyen === 2)
+                                        @if (Auth::user()->id_quyen === 2 || Auth::user()->id_quyen === 3  )
                                             <li><a href="{{ route('admin-home') }}">Trang quản lý</a></li>
                                         @endif
                                     @endauth
@@ -87,7 +87,7 @@
                 </div>
             </div>
             <ul class="nav-menu-mobile">
-                <li><a href="{{ route('cong-ty') }}"><i class="fa-solid fa-building"></i>
+                <li><a href="{{ route('getAllCompany') }}"><i class="fa-solid fa-building"></i>
                         <span>Doanh nghiệp</span>
                     </a>
                 </li>

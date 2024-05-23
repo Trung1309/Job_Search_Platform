@@ -9,16 +9,26 @@
         <div id="page-wrapper">
             <div class="main-page">
                 <div class="charts-grids">
+
                     @if (Session::has('success'))
                         <div class= "alert alert-success">{{ Session::get('success') }}</div>
                     @endif
                     <h1 class="text-center" style="margin-bottom: 20px">{{$title}}</h1>
+                    <form action="" method="get">
+                        <div class="form-group" style="display: flex; width: 30%;">
+                            <input type="text" class="form-control" placeholder="Nhập từ khoá" class="">
+                            <button type="submit" class="btn btn-orange"> Tìm kiếm</button>
+                        </div>
+                    </form>
                     <table class="table table-bordered">
                         <thead class="thead-dark">
                             <tr style="text-align: center">
                                 <th scope="col" class="text-center">ID</th>
                                 <th scope="col" class="text-center">Tên công việc</th>
                                 <th scope="col" class="text-center">Ngày hết hạn</th>
+                                @if (Auth::user()->id_quyen == 3)
+                                    <th scope="col" class="text-center">Công ty tuyển dụng</th>
+                                @endif
                                 <th scope="col" class="text-center">Trạng thái</th>
                                 <th scope="col" class="text-center">Tuỳ chọn</th>
                             </tr>
@@ -29,7 +39,11 @@
                                     <td scope="row">{{$item->id_cong_viec}}</td>
                                     <td>{{$item->ten_cong_viec}}</td>
                                     <td>{{$item->ngay_het_han}}</td>
+                                    @if (Auth::user()->id_quyen == 3)
+                                        <td>{{$item->bussinesses->ten_doanh_nghiep}}</td>
+                                    @endif
                                     <td>{{$item->trang_thai}}</td>
+
                                     <td>
                                         <div class="option-btn d-flex" style="display: flex; justify-content: center; align-items: center">
                                             <form action="{{route('deleteJob',$item->id_cong_viec)}}" method="POST" style="margin-right: 10px">

@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Auth;
 class AdNewsController extends Controller
 {
     //
+    public function getAllNews(){
+        $title = 'Quản lí tin tức';
+        $news = News::all();
+        return view('Admin.News.news-list',compact('title','news'));
+    }
     public function getAllMyNews(){
         $title = 'Tất cả tin tức của tôi';
         $userID = Auth::user()->id_nguoi_dung;
@@ -53,7 +58,7 @@ class AdNewsController extends Controller
         $image->move(public_path('uploads/news/'), $imageName);
 
         // Xóa hình ảnh cũ nếu tồn tại
-        if (file_exists(public_path('uploads/news/' . $news->hinh_dai_dien))) {
+        if (!empty(file_exists(public_path('uploads/news/' . $news->hinh_dai_dien)))) {
             unlink(public_path('uploads/news/' . $news->hinh_dai_dien));
         }
 

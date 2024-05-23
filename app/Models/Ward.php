@@ -14,7 +14,7 @@ class Ward extends Model
         'id_quan_huyen'
     ];
 
-    protected $primary = 'id_phuong_xa';
+    protected $primaryKey = 'id_phuong_xa';
 
     public function districts()
     {

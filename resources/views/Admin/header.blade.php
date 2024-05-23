@@ -147,12 +147,26 @@
                 <li class="dropdown profile_details_drop">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                         <div class="profile_img">
-                            <span class="prfil-img"><img src="{{ asset('images/Admin/2.jpg') }}" alt="" />
-                            </span>
-                            <div class="user-name">
-                                <p>{{Auth()->user()->bussinesses->ten_doanh_nghiep}}</p>
-                                <span>Tài khoản: {{Auth()->user()->roles->ten_quyen}}</span>
-                            </div>
+
+                            @auth
+                                @if (Auth::user()->id_quyen == 2)
+                                <span class="prfil-img"><img src="{{Auth::user()->bussinesses->hinh_dai_dien ? asset('uploads/company/'.Auth::user()->bussinesses->hinh_dai_dien) : asset('https://th.bing.com/th/id/R.1c75547f74d8aa7720a495f208c9b1c8?rik=sQutfouPTUbxOw&pid=ImgRaw&r=0') }}" alt="" />
+                                </span>
+                                <div class="user-name">
+                                    <p>{{Auth()->user()->bussinesses->ten_doanh_nghiep}}</p>
+                                    <span>Tài khoản: {{Auth()->user()->roles->ten_quyen}}</span>
+                                </div>
+                                @endif
+                            @endauth
+                            @auth
+                                @if (Auth::user()->id_quyen == 3)
+                                <span class="prfil-img"><img src="https://th.bing.com/th/id/R.1c75547f74d8aa7720a495f208c9b1c8?rik=sQutfouPTUbxOw&pid=ImgRaw&r=0" alt="" />
+                                <div class="user-name">
+                                    <p>{{Auth()->user()->ho_ten}}</p>
+                                    <span>Tài khoản: {{Auth()->user()->roles->ten_quyen}}</span>
+                                </div>
+                                @endif
+                            @endauth
                             {{-- <i class="fa fa-angle-down lnr"></i>
                             <i class="fa fa-angle-up lnr"></i> --}}
                             {{-- <div class="clearfix"></div> --}}

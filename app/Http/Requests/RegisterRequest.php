@@ -31,6 +31,9 @@ class RegisterRequest extends FormRequest
             'email' =>'required|unique:users|email',
             'password' => 'required|min:8',
             'ma_so_thue' => 'required|unique:bussinesses',
+            'id_phuong_xa' => 'required',
+            'so_duong' => 'required',
+            'quy_mo' => 'required'
         ];
     }
 
@@ -51,6 +54,9 @@ class RegisterRequest extends FormRequest
             'email' => 'Email',
             'password' => 'Mật khẩu',
             'ma_so_thue' => 'Mã số thuế',
+            'id_phuong_xa' =>  'Phường xã',
+            'quy_mo' => 'Quy mô',
+            'so_duong' => 'Số đường'
         ];
     }
 }

@@ -19,11 +19,12 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('sdt')->nullable();
             $table->unsignedBigInteger('id_phuong_xa')->nullable();
+            $table->string('so_duong')->nullable();
             $table->foreign('id_phuong_xa')->references('id_phuong_xa')->on('wards');
-            $table->string('gioi_thieu')->nullable();
+            $table->text('gioi_thieu')->nullable();
             $table->string('ma_so_thue');
             $table->unsignedBigInteger('id_nguoi_dung');
-            $table->foreign('id_nguoi_dung')->references('id_nguoi_dung')->on('users');
+            $table->foreign('id_nguoi_dung')->references('id_nguoi_dung')->on('users')->onDelete('cascade');
             $table->string('quy_mo')->nullable();
             $table->string('the_loai')->nullable();
             $table->string('hinh_dai_dien')->nullable();

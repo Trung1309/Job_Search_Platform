@@ -59,27 +59,9 @@
                                             <small id="helpId" class="form-text text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
-                                    <div class="form-group pd-ri">
-                                        <label for="thanhPho">Thành Phố</label>
-                                        <div class="">
-                                            <select name="thanh_pho" id="province" class="form-control">
-                                                <option value="">Chọn tỉnh/thành phố</option>
-                                                @foreach ($provinces as $province)
-                                                    <option value="{{ $province->id_tinh_thanh }}">
-                                                        {{ $province->ten_tinh_thanh }}</option>
-                                                @endforeach
-                                            </select>
-                                            @error('thanh_pho')
-                                                <small id="helpId" class="form-text text-danger">{{ $message }}</small>
-                                            @enderror
-                                        </div>
-
-                                    </div>
-
-
                                 </div>
                                 <div class="col col-md-6 mr-2">
-                                    <div class="form-group ">
+                                    <div class="form-group pd-ri ">
                                         <label for="muc_luong">Mức lương</label>
                                         <select class="form-control" name="muc_luong" id="mucLuong">
                                             <option value="" selected disabled>Vui lòng chọn</option>
@@ -97,31 +79,6 @@
                                         @error('ngay_het_han')
                                             <small id="helpId" class="form-text text-danger">{{ $message }}</small>
                                         @enderror
-
-                                    </div>
-
-                                    <div class="form-group ">
-                                        <label for="quanHuyen">Quận huyện</label>
-                                        <div class="">
-                                            <select name="quan_huyen" id="district" class="form-control">
-                                                <option value="">Chọn quận/huyện</option>
-                                            </select>
-                                            @error('quan_huyen')
-                                                <small id="helpId" class="form-text text-danger">{{ $message }}</small>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group ">
-                                        <label for="phuongXa">Phường Xã</label>
-                                        <div class="">
-                                            <select name="id_phuong_xa" id="ward" class="form-control">
-                                                <option value="">Chọn phường/xã</option>
-                                            </select>
-                                            @error('id_phuong_xa')
-                                                <small id="helpId" class="form-text text-danger">{{ $message }}</small>
-                                            @enderror
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -133,12 +90,9 @@
                                     <small id="helpId" class="form-text text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
-                            <script>
-                                new MultiSelectTag('skills') // id
-                            </script>
                             <div class="form-group p-15">
                                 <label for="mo_ta">Mô tả</label>
-                                <textarea class="form-control" name="mo_ta" id="moTa" rows="3">{{old('mo_ta')}}"</textarea>
+                                <textarea class="form-control" name="mo_ta" id="moTa" rows="3">{{old('mo_ta')}}</textarea>
                                 @error('mo_ta')
                                     <small id="helpId" class="form-text text-danger">{{ $message }}</small>
                                 @enderror

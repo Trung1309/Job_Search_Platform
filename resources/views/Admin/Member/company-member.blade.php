@@ -9,14 +9,7 @@
         <div id="page-wrapper">
             <div class="main-page">
                 <div class="charts-grids">
-
                     <h1 class="text-center" style="margin-bottom: 20px">{{$title}}</h1>
-                    <form action="" method="get">
-                        <div class="form-group" style="display: flex; width: 30%;">
-                            <input type="text" class="form-control" placeholder="Nhập từ khoá" class="">
-                            <button type="submit" class="btn btn-orange"> Tìm kiếm</button>
-                        </div>
-                    </form>
                     @if (Session::has('success'))
                         <div class="alert alert-success">{{ Session::get('success') }}</div>
                     @endif
@@ -27,13 +20,8 @@
                                 <th scope="col" class="text-center">Họ tên</th>
                                 <th scope="col" class="text-center">Email</th>
                                 <th scope="col" class="text-center">Số điện thoại</th>
-                                @if (Auth::user()->id_quyen == 2)
-                                    <th scope="col" class="text-center">Kinh nghiệm</th>
-                                    <th scope="col" class="text-center">Kỹ năng</th>
-                                @endif
-                                @if (Auth::user()->id_quyen == 3)
-                                    <th scope="col" class="text-center">Tài khoản</th>
-                                @endif
+                                <th scope="col" class="text-center">Tài khoản</th>
+                                <th scope="col" class="text-center">Công ty</th>
                                 <th scope="col" class="text-center">Tuỳ chọn</th>
                             </tr>
                         </thead>
@@ -44,13 +32,8 @@
                                     <td>{{$item->ho_ten}}</td>
                                     <td>{{$item->email}}</td>
                                     <td>{{$item->sdt}}</td>
-                                    @if (Auth::user()->id_quyen == 2)
-                                        <td>{{$item->kinh_nghiem}}</td>
-                                        <td>{{$item->ky_nang}}</td>
-                                    @endif
-                                    @if (Auth::user()->id_quyen == 3)
-                                        <td>{{$item->roles->ten_quyen}}</td>
-                                    @endif
+                                    <td>{{$item->roles->ten_quyen}}</td>
+                                    <td>{{$item->bussinesses->ten_doanh_nghiep}}</td>
                                     <td>
                                         <div class="option-btn d-flex" style="display: flex; justify-content: center; align-items: center">
                                             <form action="{{route('deleteMember',$item->id_nguoi_dung)}}" method="POST" style="margin-right: 10px">

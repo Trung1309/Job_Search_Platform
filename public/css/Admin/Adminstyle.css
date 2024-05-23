@@ -16,6 +16,11 @@ h1, h2, h3 {margin: 0;}
 ul, ol {margin: 0;}
 p {margin: 0;}
 
+.btn-orange{
+    background: #d35400;
+    color: #fff;
+}
+
 .t-cen{
     text-align: center;
 }
@@ -24,8 +29,8 @@ p {margin: 0;}
 }
 
 .avt-news{
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
 }
 
@@ -842,8 +847,12 @@ ul.dropdown-menu {
     display:block;
 	padding: 0.2em 3em 0 0em;
 }
-.profile_img span.prfil-img{
+.profile_img span.prfil-img img{
 	float:left;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 .user-name{
 	 float:left;

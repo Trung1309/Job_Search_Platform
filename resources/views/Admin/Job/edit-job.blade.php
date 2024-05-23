@@ -14,7 +14,7 @@
                         <div class="alert alert-success">{{ Session::get('success') }}</div>
                     @endif
                     <div class="form-group">
-                        <form action="" method="POST" class="form-horizontal style-form" enctype="multipart/form-data">
+                        <form action="{{route('updateJobPost',$job->id_cong_viec)}}" method="POST" class="form-horizontal style-form" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="form-group p-15">
@@ -142,7 +142,6 @@
                             <div class="form-group p-15">
                                 <button type="submit" class="btn btn-primary text-center">Cập nhật bài đăng</button>
                             </div>
-
                         </form>
                     </div>
                 </div>

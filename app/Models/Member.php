@@ -25,7 +25,12 @@ class Member extends Model
 
     public function jobs()
     {
-        return $this->belongsTo(User::class, 'id_cong_viec', 'id_cong_viec');
+        return $this->belongsTo(Job::class, 'id_cong_viec', 'id_cong_viec');
+    }
+
+    public function bussinesses()
+    {
+        return $this->belongsTo(Bussiness::class, 'id_doanh_nghiep', 'id_doanh_nghiep');
     }
 
 }

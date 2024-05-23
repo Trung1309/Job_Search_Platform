@@ -30,7 +30,7 @@ class LoginController extends Controller
             $user = Auth::user();
             if ($user->id_quyen == 1) {
                 return redirect()->route('home');
-            } elseif ($user->id_quyen == 2)  {
+            } elseif ($user->id_quyen == 2  || $user->id_quyen == 3)  {
                 return redirect()->route('admin-home');
             }
         }else{

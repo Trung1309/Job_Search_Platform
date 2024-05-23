@@ -526,7 +526,7 @@ footer{
     align-items: center;
 }
 .company-cards .company-item .company-avt img{
-    width: 200px;
+    width: 150px;
     height: 150px;
     object-fit: cover;
 }

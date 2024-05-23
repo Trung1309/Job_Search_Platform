@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class PostionSeeder extends Seeder
+class CategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,5 +16,7 @@ class PostionSeeder extends Seeder
     public function run()
     {
         //
+        Category::create(['ten_the_loai' => 'Onsite']);
+        Category::create(['ten_the_loai' => 'Remote']);
     }
 }

@@ -18,39 +18,7 @@
             <div class="content">
                 <div class="container">
                     <div class="row">
-                        <div class="content-filter-left col-md-3">
-                            <h4 style=" padding:10px; text-transform:uppercase; border-bottom:1px solid gray ;">Bộ lọc
-                            </h4>
-                            <form action="">
-                                <ul class="menu-filter">
-                                    <li>Địa chỉ
-                                        <ul class="sub-menu-filter">
-                                            <li><input type="radio" name="quy_mo"> 10-100</li>
-                                            <li><input type="radio" name="quy_mo"> 100-200</li>
-                                            <li><input type="radio" name="quy_mo"> 200-300</li>
-                                        </ul>
-                                    </li>
-                                    <li>Quy mô
-                                        <ul class="sub-menu-filter">
-                                            <li><input type="radio" name="quy_mo"> 10-100</li>
-                                            <li><input type="radio" name="quy_mo"> 100-200</li>
-                                            <li><input type="radio" name="quy_mo"> 200-300</li>
-                                        </ul>
-                                    </li>
-                                    <li>Thể loại
-                                        <ul class="sub-menu-filter">
-                                            <li><input type="radio" name="the_loại"> Product</li>
-                                            <li><input type="radio" name="the_loai"> Outsourcing</li>
-                                            <li><input type="radio" name="the_loai"> Solution</li>
-                                            <li><input type="radio" name="the_loai"> Cosnutant</li>
-                                            <li><input type="radio" name="the_loai"> Service</li>
-
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <button type="submit">Tìm kiếm</button>
-                            </form>
-                        </div>
+                        @include('sidebar.sidebar_filter_company')
                         <div class="content-job-right col-md-9">
                             <div class="search-box w-100">
                                 <form action="">
@@ -60,55 +28,23 @@
                                 </form>
                             </div>
                             <div class="company-cards">
-                                <div class="company-item">
-                                    <div class="company-avt">
-                                        <img src="{{asset('images/company-bap.png')}}" alt="">
-                                    </div>
-                                    <div class="company-content">
-                                        <a href="" class="company-title">Công ty công nghệ phần mềm BAP</a>
-                                        <div class="company-desc">Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit. Ad debitis illum facilis, accusantium tenetur veritatis deleniti
-                                            voluptatibus deserunt quaerat. Omnis eligendi reiciendis cum eos molestiae
-                                            porro ea beatae tempora neque!</div>
-                                        <div class="company-address"><i class="fa-solid fa-location-dot"></i>
-                                            Hà Nội
+                                @foreach ($company as $key => $item)
+                                    <div class="company-item">
+                                        <div class="company-avt">
+                                            <img src="{{$item->hinh_dai_dien ? asset('uploads/company/'.$item->hinh_dai_dien) : ''}}" alt="">
                                         </div>
+                                        <div class="company-content">
+                                            <a href="" class="company-title">{{$item->ten_doanh_nghiep}}</a>
+                                            <div class="company-desc">
+                                                {!!$item->gioi_thieu!!}
+                                            </div>
+                                            <div class="company-address"><i class="fa-solid fa-location-dot"></i>
+                                                {{$item->id_phuong_xa ? 'Q.'.$item->wards->districts->ten_quan_huyen.', TP.'.$item->wards->districts->provinces->ten_tinh_thanh  : '' }}
+                                            </div>
 
-                                    </div>
-                                </div>
-                                <div class="company-item">
-                                    <div class="company-avt">
-                                        <img src="{{asset('images/company-bap.png')}}" alt="">
-                                    </div>
-                                    <div class="company-content">
-                                        <a href="" class="company-title">Công ty công nghệ phần mềm BAP</a>
-
-
-                                        <div class="company-desc">Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit. Ad debitis illum facilis, accusantium tenetur veritatis deleniti
-                                            voluptatibus deserunt quaerat. Omnis eligendi reiciendis cum eos molestiae
-                                            porro ea beatae tempora neque!</div>
-                                        <div class="company-address"><i class="fa-solid fa-location-dot"></i>
-                                            Hà Nội
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="company-item">
-                                    <div class="company-avt">
-                                        <img src="{{asset('images/company-bap.png')}}" alt="">
-                                    </div>
-                                    <div class="company-content">
-                                        <a href="" class="company-title">Công ty công nghệ phần mềm BAP</a>
-                                        <div class="company-desc">Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit. Ad debitis illum facilis, accusantium tenetur veritatis deleniti
-                                            voluptatibus deserunt quaerat. Omnis eligendi reiciendis cum eos molestiae
-                                            porro ea beatae tempora neque!</div>
-                                        <div class="company-address"><i class="fa-solid fa-location-dot"></i>
-                                            Đà Nẵng
                                         </div>
                                     </div>
-                                </div>
+                                @endforeach
                             </div>
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">

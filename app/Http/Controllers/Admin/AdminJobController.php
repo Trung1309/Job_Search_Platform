@@ -18,11 +18,16 @@ use Illuminate\Support\Facades\Auth;
 class AdminJobController extends Controller
 {
     //
+    public function getAllJob(){
+        $bussiness = Job::all();
+        $title = 'Tất cả bài đăng tuyển dụng';
+        return view('Admin.Job.job-list',compact('title','bussiness'));
+    }
     public function getAllMyJob(){
         $bussinessID = Auth()->user()->bussinesses->id_doanh_nghiep;
         $bussiness = Job::where('id_doanh_nghiep',$bussinessID)->orderByDesc('created_at')->get();
         $title = 'Tất cả bài đăng tuyển dụng của công ty';
-        return view('Admin.Job.myJob-post',compact('title','bussiness'));
+        return view('Admin.Job.job-list',compact('title','bussiness'));
     }
 
     public function addJob(){
@@ -31,25 +36,26 @@ class AdminJobController extends Controller
         $category = Category::all();
         $provinces = Province::all();
         $skill = Skill::all();
+        $id_phuong = Auth::user()->bussinesses->id_phuong_xa;
         $title = 'Đăng bài tuyển dụng';
-        return view('Admin.Job.add-job',compact('title','provinces','level','position','category','skill'));
+        return view('Admin.Job.add-job',compact('id_phuong','title','provinces','level','position','category','skill'));
     }
 
     public function addJobPost(JobRequest $request){
         $bussinessID = Auth()->user()->bussinesses->id_doanh_nghiep;
+        $id_phuong_xa = Auth()->user()->bussinesses->id_phuong_xa;
         $job = new Job([
             'ten_cong_viec' => $request->input('ten_cong_viec'),
             'mo_ta' => $request->input('mo_ta'),
             'ngay_het_han' => $request->input('ngay_het_han'),
             'id_the_loai' => $request->input('id_the_loai'),
             'muc_luong' => $request->input('muc_luong'),
-            'id_phuong_xa' => $request->input('id_phuong_xa'),
+            'id_phuong_xa' => $id_phuong_xa,
             'id_trinh_do' => $request->input('id_trinh_do'),
             'id_doanh_nghiep' => $bussinessID,
             'id_vi_tri' => $request->input('id_vi_tri'),
             'ky_nang' => $request->input('ky_nang')
         ]);
-
         $job->save();
         return redirect()->route('getAllMyJob')->with('success','Đăng bài tuyển dụng thành công');
     }
@@ -64,7 +70,7 @@ class AdminJobController extends Controller
         return view('Admin.Job.edit-job',compact('title','provinces','level','position','category','skill','job'));
     }
 
-    public function updateJobPost(JobRequest $request, Job $job ,$job_id){
+    public function updateJobPost(JobRequest $request, $job_id){
         $level = Level::all();
         $position = Position::all();
         $category = Category::all();
@@ -72,8 +78,8 @@ class AdminJobController extends Controller
         $skill = Skill::all();
 
         $title = 'Cập nhật bài đăng';
-        $bussinessID = Auth()->user()->bussinesses->id_doanh_nghiep;
         $job = Job::findOrFail($job_id);
+
         $job->update([
             'ten_cong_viec' => $request->input('ten_cong_viec'),
             'mo_ta' => $request->input('mo_ta'),
@@ -82,13 +88,12 @@ class AdminJobController extends Controller
             'muc_luong' => $request->input('muc_luong'),
             'id_phuong_xa' => $request->input('id_phuong_xa'),
             'id_trinh_do' => $request->input('id_trinh_do'),
-            'id_doanh_nghiep' => $bussinessID,
             'id_vi_tri' => $request->input('id_vi_tri'),
             'ky_nang' => $request->input('ky_nang')
         ]);
         $request->session()->flash('success','Bạn đã cập nhật thành công');
-        return view('Admin.Job.edit-job',compact('title','provinces','level',
-        'position','category','skill','job'));
+        return view('Admin.Job.edit-job',compact('title','provinces','level','position','category','skill','job'));
+
     }
 
     public function deleteJob($job_id){

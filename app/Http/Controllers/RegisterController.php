@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Province;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Bussiness;
@@ -15,7 +16,8 @@ class RegisterController extends Controller
 
 
     public function indexCompany(){
-        return view('register_company');
+        $provinces = Province::all();
+        return view('register_company',compact('provinces'));
     }
 
     public function indexClient(){
@@ -32,7 +34,12 @@ class RegisterController extends Controller
         ]);
 
         $business = new Bussiness([
+            'email' => $request->input('email'),
+            'sdt' => $request->input('sdt'),
             'ten_doanh_nghiep' => $request->input('ten_doanh_nghiep'),
+            'id_phuong_xa' => $request->input('id_phuong_xa'),
+            'so_duong' => $request->input('so_duong'),
+            'quy_mo' => $request->input('quy_mo'),
             'ma_so_thue' => $request->input('ma_so_thue'),
         ]);
 

@@ -17,14 +17,17 @@ class RoleSeeder extends Seeder
     public function run()
     {
         //
-        Role::create(['ten_quyen'=>'user']);
-        Role::create(['ten_quyen'=>'company']);
-        Role::create(['ten_quyen'=>'admin']);
-
-        Level::create(['ten_trinh_do'=>'Không bằng cấp']);
-        Level::create(['ten_trinh_do'=>'Cao Đẳng']);
-        Level::create(['ten_trinh_do'=>'Đại học']);
-        Level::create(['ten_trinh_do'=>'Tiến sĩ']);
-        Level::create(['ten_trinh_do'=>'Thạc sĩ']);
+        Role::create([
+            'id_quyen' => 1,
+            'ten_quyen'=>'use'
+        ]);
+        Role::create([
+            'id_quyen' => 2,
+            'ten_quyen'=>'company'
+        ]);
+        Role::create([
+            'id_quyen' => 3,
+            'ten_quyen'=>'admin'
+        ]);
     }
 }

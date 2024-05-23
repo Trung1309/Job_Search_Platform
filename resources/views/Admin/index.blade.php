@@ -7,9 +7,6 @@
         <!-- //header-ends -->
         <!-- main content start-->
         <div id="page-wrapper">
-            <object data="{{asset('pdf/pppp.pdf')}}" type="application/pdf"  width="330px" height="600px">
-                <iframe src="{{asset('pdf/pppp.pdf')}}" type="application/pdf">
-            </object>
             <div class="main-page">
                 <div class="row">
                     <div class="col-md-6 widget ">

@@ -19,6 +19,8 @@ return new class extends Migration
             $table->foreign('id_cong_viec')->references('id_cong_viec')->on('jobs');
             $table->unsignedBigInteger('id_nguoi_dung');
             $table->foreign('id_nguoi_dung')->references('id_nguoi_dung')->on('users');
+            $table->unsignedBigInteger('id_doanh_nghiep');
+            $table->foreign('id_doanh_nghiep')->references('id_doanh_nghiep')->on('bussinesses');
             $table->string('cv')->nullable();
             $table->timestamps();
         });

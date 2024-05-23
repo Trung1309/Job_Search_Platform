@@ -35,14 +35,6 @@
                             </div>
                             <div class="form-group p-15" >
                                 <div>
-                                    <label for="hinh_dai_dien">Hình đại diện cũ </label>
-                                </div>
-                                <div >
-                                    <img src="{{asset('uploads/news/'.$news->hinh_dai_dien)}}" class="avt-news">
-                                </div>
-                            </div>
-                            <div class="form-group p-15" >
-                                <div>
                                     <label for="hinh_dai_dien">Hình đại diện mới </label>
                                     <input type="file" class="form-control-file" name="hinh_dai_dien" id="avtNews"
                                         placeholder="Tải ảnh lên">
@@ -52,7 +44,7 @@
                                 </div>
                                 <div >
                                     <div class="avt-new">
-                                        <img id="imagePreview" class="avt-news">
+                                        <img  src="{{asset('uploads/news/'.$news->hinh_dai_dien)}}" id="imagePreview" class="avt-news">
                                     </div>
 
                                 </div>

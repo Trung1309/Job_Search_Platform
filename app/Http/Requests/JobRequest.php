@@ -30,12 +30,10 @@ class JobRequest extends FormRequest
             'ngay_het_han' => 'required',
             'id_the_loai' => 'required',
             'muc_luong' => 'required',
-            'id_phuong_xa' => 'required',
             'id_trinh_do' => 'required',
             'id_vi_tri' => 'required',
             'ky_nang' => 'required',
-            'thanh_pho' => 'required',
-            'quan_huyen' => 'required'
+
         ];
     }
 
@@ -52,12 +50,10 @@ class JobRequest extends FormRequest
             'ngay_het_han' => 'Ngày hết hạn',
             'id_the_loai' => 'Thể loại',
             'muc_luong' => 'Mức lương',
-            'id_phuong_xa' => 'Phường / xã',
             'id_trinh_do' => 'Trình độ',
             'id_vi_tri' => 'Vị trí ',
             'ky_nang' => 'Kỹ năng',
-            'thanh_pho' => 'Thành phố',
-            'quan_huyen' => 'Quận huyện'
+
         ];
     }
 }
