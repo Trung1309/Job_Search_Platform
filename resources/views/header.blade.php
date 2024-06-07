@@ -21,7 +21,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('cong-viec') }}">
+                            <a href="{{ route('getAllJobPage') }}">
                                 <i class="fa-solid fa-bag-shopping"></i>
                                 <span>Công việc</span>
                             </a>
@@ -58,7 +58,7 @@
                                     @endauth
 
                                     @if (Auth::check())
-                                        <li><a href="{{ route('getProfile') }}">Thông tin cá nhân</a></li>
+                                        <li><a href="{{ route('getProfile') }}">Hồ sơ của bạn</a></li>
                                         <li>
                                             <form action="{{ route('logout') }}" method="POST">
                                                 @csrf
@@ -92,7 +92,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('cong-viec') }}">
+                    <a href="{{ route('getAllJobPage') }}">
                         <i class="fa-solid fa-building"></i>
                         <span>Công việc</span>
                     </a>

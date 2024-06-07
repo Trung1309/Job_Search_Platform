@@ -18,42 +18,11 @@
             <div class="content">
                 <div class="container">
                     <div class="row">
-                        <div class="content-filter-left col-md-3">
-                            <h4 style=" padding:10px; text-transform:uppercase; border-bottom:1px solid gray ;">Bộ lọc
-                            </h4>
-                            <form action="">
-                                <ul class="menu-filter">
-                                    <li>Địa chỉ
-                                        <ul class="sub-menu-filter">
-                                            <li><input type="radio" name="quy_mo"> 10-100</li>
-                                            <li><input type="radio" name="quy_mo"> 100-200</li>
-                                            <li><input type="radio" name="quy_mo"> 200-300</li>
-                                        </ul>
-                                    </li>
-                                    <li>Quy mô
-                                        <ul class="sub-menu-filter">
-                                            <li><input type="radio" name="quy_mo"> 10-100</li>
-                                            <li><input type="radio" name="quy_mo"> 100-200</li>
-                                            <li><input type="radio" name="quy_mo"> 200-300</li>
-                                        </ul>
-                                    </li>
-                                    <li>Thể loại
-                                        <ul class="sub-menu-filter">
-                                            <li><input type="radio" name="the_loại"> Product</li>
-                                            <li><input type="radio" name="the_loai"> Outsourcing</li>
-                                            <li><input type="radio" name="the_loai"> Solution</li>
-                                            <li><input type="radio" name="the_loai"> Cosnutant</li>
-                                            <li><input type="radio" name="the_loai"> Service</li>
-
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <button type="submit">Tìm kiếm</button>
-                            </form>
-                        </div>
+                        @include('sidebar.sidebar_filter_job')
                         <div class="content-job-right col-md-9">
                             <div class="search-box w-100">
-                                <form action="">
+                                <form action="" method="GET">
+
                                     <input type="text" placeholder="Nhập từ khoá tìm kiếm"
                                         class="form-control col-md-10 ">
                                     <button type="submit" class="btn">Tìm kiếm</button>
@@ -63,7 +32,7 @@
                                 @foreach ($job as $key => $item)
                                 <div class="company-item">
                                     <div class="company-content">
-                                        <a href="" class="company-title">{{$item->ten_cong_viec}}</a>
+                                        <a href="{{route('showDetailJob',$item->id_cong_viec)}}" class="company-title">{{$item->ten_cong_viec}}</a>
                                         <div class="company-name">{{$item->bussinesses->ten_doanh_nghiep}}</div>
                                         <ul class="company-skill">
                                             @php
@@ -81,7 +50,7 @@
                                                {{$item->muc_luong}}
                                             </li>
                                             <li><i class="fa-solid fa-location-dot"></i>
-                                                {{$item->wards->districts->ten_quan_huyen}}
+                                                {{'Q.'.$item->wards->districts->ten_quan_huyen. ' - TP.'.$item->wards->districts->provinces->ten_tinh_thanh}}
                                             </li>
                                         </ul>
                                     </div>
@@ -89,25 +58,14 @@
                                 @endforeach
 
                             </div>
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                  <li class="page-item">
-                                    <a class="page-link " href="#" aria-label="Previous">
-                                      <span aria-hidden="true">&laquo;</span>
-                                      <span class="sr-only">Previous</span>
-                                    </a>
-                                  </li>
-                                  <li class="page-item"><a class="page-link current" href="#">1</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                  <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Next">
-                                      <span aria-hidden="true">&raquo;</span>
-                                      <span class="sr-only">Next</span>
-                                    </a>
-                                  </li>
-                                </ul>
-                              </nav>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <p>Đang ở trang {{ $job->currentPage() }} trên tổng số {{ $job->lastPage() }} trang</p>
+                                </div>
+                            </div>
+                            <div class="paginate">
+                                {{ $job->links('pagination::bootstrap-4') }}
+                            </div>
                         </div>
                     </div>
                 </div>

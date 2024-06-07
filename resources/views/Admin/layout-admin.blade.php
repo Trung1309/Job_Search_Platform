@@ -74,6 +74,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/css/multi-select-tag.css">
     <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/js/multi-select-tag.js"></script>
 <body class="cbp-spmenu-push">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{asset('css/custom.css')}}">
+
+
+
     @yield('content-admin')
     <!-- new added graphs chart js-->
     <script src="{{ asset('js/Admin/Chart.bundle.js') }}"></script>
@@ -273,6 +278,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
     <script>
         CKEDITOR.replace( 'moTa' );
+    </script>
+     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+     <script>
+        $(document).ready(function() {
+            $('#skills').select2({
+                maximumSelectionLength: 5
+            });
+        });
     </script>
 </body>
 

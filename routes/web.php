@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CompanyController;
@@ -33,7 +34,14 @@ use App\Http\Controllers\Admin\ADNewsController;
 
 Route::get('/', [HomeController::class,'index'])->name('home');
 
-Route::get('/cong-viec', [JobController::class,'index'])->name('cong-viec');
+Route::prefix('cong_viec')->group(function () {
+    Route::get('/', [JobController::class,'getAllJobPage'])->name('getAllJobPage');
+    Route::get('/loc_cong_viec', [JobController::class,'filterJob'])->name('filterJob');
+    Route::get('/{job_id}',[JobController::class,'showDetailJob'])->name('showDetailJob');
+    Route::get('/apply-cong-viec/{job_id}', [JobController::class,'applyJob'])->name('applyJob')->middleware('apply.check');
+    Route::post('/apply-cong-viec/{job_id}', [JobController::class,'applyJobPost'])->name('applyJobPost')->middleware('apply.check');
+});
+
 Route::get('/cong-ty', [CompanyController::class,'getAllCompany'])->name('getAllCompany');
 Route::get('/lien-he', [ContactController::class,'index'])->name('lien-he');
 
@@ -44,9 +52,12 @@ Route::post('/dang-nhap', [LoginController::class,'login'])->name('login');
 Route::post('/dang-xuat', [LoginController::class,'logout'])->name('logout');
 
 Route::get('/thong-tin-ca-nhan', [ProfileController::class,'getProfile'])->name('getProfile');
+Route::put('/cap-nhat-thong-tin/{user_id}', [ProfileController::class,'updateProfileUserPost'])->name('updateProfileUserPost');
 
 Route::get('/dang-ki', [RegisterController::class,'indexClient'])->name('indexClient');
 Route::post('/dang-ki', [RegisterController::class,'registerClient'])->name('registerClient');
+
+
 
 // Route::post('/dang-ki', [RegisterController::class,'register'])->name('register');
 
@@ -58,6 +69,8 @@ Route::post('/dang-ki-doanh-nghiep', [RegisterController::class,'registerCompany
 Route::get('/tin-tuc', [NewsController::class,'index'])->name('tin-tuc');
 
 
+
+
 Route::group(['prefix' => 'quan-li', 'middleware' => 'auth.admin','check.role'], function () {
     // Các route của trang quản trị
     Route::get('/',[DashController::class,'index'])->name('admin-home');
@@ -66,6 +79,12 @@ Route::group(['prefix' => 'quan-li', 'middleware' => 'auth.admin','check.role'],
 
     Route::get('/quan-li-bai-dang',[AdminJobController::class,'getAllJob'])->name('getAllJob');
     Route::get('/bai-dang-tuyen-dung',[AdminJobController::class,'getAllMyJob'])->name('getAllMyJob');
+
+    Route::prefix('ung-vien-phu-hop')->group(function () {
+        Route::get('/{job_id}',[MemberController::class,'getMemberSuitableMyJob'])->name('getMemberSuitableMyJob');
+        Route::get('/thong-tin-ung-vien/{member_id}',[MemberController::class,'getDetailMemberSuitable'])->name('getDetailMemberSuitable');
+    });
+
     Route::get('/dang-bai-tuyen-dung',[AdminJobController::class,'addJob'])->name('addJob');
     Route::post('/dang-bai-tuyen-dung',[AdminJobController::class,'addJobPost'])->name('addJobPost');
     Route::get('/cap-nhat-bai-dang/{job_id}',[AdminJobController::class,'updateJob'])->name('updateJob');
@@ -120,4 +139,5 @@ Route::get('/location',[Locaticontroller::class ,'indexLocation']);
 Route::get('get-districts/{province_id}', [Locaticontroller::class ,'getDistricts']);
 Route::get('get-wards/{district_id}', [Locaticontroller::class ,'getWards']);
 
+Route::get('get-certificate/{certificate_id}', [LanguageController::class ,'getCertificate']);
 

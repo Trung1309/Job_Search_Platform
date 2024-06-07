@@ -11,7 +11,12 @@ class District extends Model
 
     protected $fillable = [
         'ten_quan_huyen',
-        'id_tinh_thanh'
+        'ten_quan_huyen_en',
+        'full_name',
+        'full_name_en',
+        'code_name',
+        'id_tinh_thanh',
+        'unit_id'
     ];
 
     protected $primaryKey = 'id_quan_huyen';
@@ -22,6 +27,10 @@ class District extends Model
     }
     public function wards()
     {
-        return $this->hasMany(Ward::class, 'id_phuong_xa', 'id_phuong_xa');
+        return $this->hasMany(Ward::class, 'id_quan_huyen', 'id_quan_huyen');
+    }
+
+    public function units(){
+        return $this->belongsTo(Units::class,'unit_id','unit_id');
     }
 }

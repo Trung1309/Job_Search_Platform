@@ -474,6 +474,12 @@ footer{
     padding: 5px 0px;
     font-size: 18px;
 }
+.menu-filter  li .sub-menu-filter-active li{
+    list-style: none;
+    font-weight: normal;
+    padding: 5px 0px;
+    font-size: 18px;
+}
 .menu-filter  li .sub-menu-filter li input{
     padding-left: 10px;
 }
@@ -568,19 +574,6 @@ footer{
 }
 
 /* Phân trang */
-.pagination{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-.pagination .page-link{
-    color: black;
-}
-.page-link.current{
-    background: #d35400;
-    color: #fff;
-}
 
 /* css login page */
 
@@ -601,6 +594,7 @@ footer{
 .account-settings .user-profile .user-avatar img {
     width: 90px;
     height: 90px;
+    object-fit: cover;
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
     border-radius: 100px;
@@ -739,4 +733,7 @@ footer{
     display: block;
 }
 
+.content-header-job{
+    padding: 50px 0px;
+}
 

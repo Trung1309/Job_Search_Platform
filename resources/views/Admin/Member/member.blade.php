@@ -45,7 +45,7 @@
                                     <td>{{$item->email}}</td>
                                     <td>{{$item->sdt}}</td>
                                     @if (Auth::user()->id_quyen == 2)
-                                        <td>{{$item->kinh_nghiem}}</td>
+                                        <td>{{ $item->id_kinh_nghiem ? $item->experiences->so_nam : 'Chưa cập nhật'}}</td>
                                         <td>{{$item->ky_nang}}</td>
                                     @endif
                                     @if (Auth::user()->id_quyen == 3)
@@ -58,7 +58,7 @@
                                                 <button onclick="return confirm('Bạn có chắc chắn muốn xoá ứng viên {{$item->ho_ten}} ?')"
                                                     type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                             </form>
-                                            <a href="" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
+                                            <a href="{{route('getDetailMemberSuitable',$item->id_nguoi_dung)}}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
                                         </div>
                                     </td>
                                 </tr>

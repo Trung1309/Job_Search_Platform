@@ -25,10 +25,13 @@ return new class extends Migration
             $table->unsignedBigInteger('id_quyen')->nullable();
             $table->foreign('id_quyen')->references('id_quyen')->on('roles');
             $table->string('password')->nullable();
-            $table->string('kinh_nghiem')->nullable();
+            $table->unsignedBigInteger('id_kinh_nghiem')->nullable();
+            $table->foreign('id_kinh_nghiem')->references('id_kinh_nghiem')->on('experiences');
             $table->string('ky_nang')->nullable();
             $table->string('hinh_dai_dien')->nullable();
             $table->string('cv')->nullable();
+            $table->unsignedBigInteger('id_chung_chi')->nullable();
+            $table->foreign('id_chung_chi')->references('id_chung_chi')->on('certificates');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

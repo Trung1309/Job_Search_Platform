@@ -33,6 +33,10 @@ class JobRequest extends FormRequest
             'id_trinh_do' => 'required',
             'id_vi_tri' => 'required',
             'ky_nang' => 'required',
+            'id_kinh_nghiem' => 'required',
+            'id_phuong_xa' => 'required',
+            'so_luong' => 'required',
+            'id_chung_chi' => 'required'
 
         ];
     }
@@ -53,7 +57,10 @@ class JobRequest extends FormRequest
             'id_trinh_do' => 'Trình độ',
             'id_vi_tri' => 'Vị trí ',
             'ky_nang' => 'Kỹ năng',
-
+            'id_kinh_nghiem' => 'Số năm kinh nghiệm',
+            'id_phuong_xa' => 'Phường xã',
+            'so_luong' => 'Số lượng',
+            'id_chung_chi' => 'Chứng chỉ'
         ];
     }
 }

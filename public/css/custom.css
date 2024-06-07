@@ -1,0 +1,87 @@
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.pagination .page-link{
+    color: black;
+}
+
+.page-item.active .page-link{
+    background: #d35400;
+    color: #fff;
+    border-color: #d35400;
+}
+
+
+.sidebar-detail-job li{
+    list-style: none;
+}
+
+.info-user-post li{
+    list-style: none;
+}
+
+
+/* upload file custom */
+
+
+.drop-container {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px dashed #555;
+    color: #444;
+    cursor: pointer;
+    transition: background .2s ease-in-out, border .2s ease-in-out;
+  }
+
+  .drop-container:hover {
+    background: #eee;
+    border-color: #111;
+  }
+
+  .drop-container:hover .drop-title {
+    color: #222;
+  }
+
+  .drop-title {
+    color: #444;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    transition: color .2s ease-in-out;
+  }
+
+  .upload-cv{
+    margin: 30px 0px;
+  }
+
+.preview-cv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.company-skill{
+    display: flex;
+    margin: 10px 0px;
+}
+.company-skill li{
+    list-style: none;
+    margin-right: 10px;
+    background: #ffe1be;
+
+    color: #b97200;
+    padding: 2px 5px;
+    border-radius: 5px;
+    border: 1px solid #f39c12;
+}

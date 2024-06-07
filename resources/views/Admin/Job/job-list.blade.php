@@ -30,20 +30,24 @@
                                     <th scope="col" class="text-center">Công ty tuyển dụng</th>
                                 @endif
                                 <th scope="col" class="text-center">Trạng thái</th>
+                                <th scope="col" class="text-center">Kỹ Năng</th>
+                                <th scope="col" class="text-center">Kinh nghiệm</th>
                                 <th scope="col" class="text-center">Tuỳ chọn</th>
+                                <th scope="col" class="text-center">ứng viên</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($bussiness as $key => $item )
+                            @foreach ($jobs as $key => $item )
                                 <tr style="text-align: center">
-                                    <td scope="row">{{$item->id_cong_viec}}</td>
+                                    <td scope="row">{{$key++}}</td>
                                     <td>{{$item->ten_cong_viec}}</td>
                                     <td>{{$item->ngay_het_han}}</td>
                                     @if (Auth::user()->id_quyen == 3)
                                         <td>{{$item->bussinesses->ten_doanh_nghiep}}</td>
                                     @endif
                                     <td>{{$item->trang_thai}}</td>
-
+                                    <td>{{$item->ky_nang}}</td>
+                                    <td>{{$item->experiences->so_nam}}</td>
                                     <td>
                                         <div class="option-btn d-flex" style="display: flex; justify-content: center; align-items: center">
                                             <form action="{{route('deleteJob',$item->id_cong_viec)}}" method="POST" style="margin-right: 10px">
@@ -53,6 +57,9 @@
                                             </form>
                                             <a href="{{route('updateJob',$item->id_cong_viec)}}" class="btn btn-primary"><i class="fa fa-pen-to-square"></i></a>
                                         </div>
+                                    </td>
+                                    <td>
+                                        <a href="{{route('getMemberSuitableMyJob',$item->id_cong_viec)}}">Xem</a>
                                     </td>
                                 </tr>
                             @endforeach

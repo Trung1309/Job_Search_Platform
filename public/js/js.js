@@ -57,7 +57,21 @@ $(document).ready(function(){
     }
 });
 
-$('.menu-filter .sub-menu-filter').show();
+const menuFilterActive = document.querySelectorAll('.menu-filter li');
+menuFilterActive.forEach(item => {
+  const subMenuFilterActive = item.querySelector('ul.sub-menu-filter-active');
+  if (subMenuFilterActive) {
+      const iconSpan = document.createElement('span');
+      const icon = document.createElement('i');
+      icon.className = 'fa-solid fa-chevron-down'; // Replace with the class of your icon library, e.g., Font Awesome
+      iconSpan.appendChild(icon);
+      // Add the icon to the beginning of the <li> element
+      item.appendChild(iconSpan);
+  }
+});
+
+$('.menu-filter .sub-menu-filter-active').show();
+$('.menu-filter .sub-menu-filter').hide();
 $(".menu-filter li>span").click(function(){
     $(this).parent().children("ul").toggle('');
 })
@@ -100,3 +114,5 @@ $(document).ready(function(){
         }
     })
 });
+
+

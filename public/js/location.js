@@ -41,3 +41,28 @@ $(document).ready(function () {
         }
     });
 });
+
+
+
+$(document).ready(function () {
+    $('#language').change(function () {
+        var languageID = $(this).val();
+        if (languageID) {
+            $.ajax({
+                url: '/get-certificate/' + languageID,
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    $('#certificates').empty();
+                    $.each(data, function (key, value) {
+                        $('#certificates').append('<option value="' + value.id_chung_chi +
+                            '">' + value.ten_chung_chi + '</option>');
+                    });
+                }
+            });
+        } else {
+            $('#certificates').empty();
+        }
+    });
+});
+

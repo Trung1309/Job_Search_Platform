@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Experience;
 use App\Models\Level;
 use App\Models\Position;
 use App\Models\Role;
@@ -38,6 +39,10 @@ class DatabaseSeeder extends Seeder
 
         if(Position::count()==0){
             $this->call(PositionSeeder::class);
+        }
+
+        if(Experience::count()==0){
+            $this->call(ExperienceSeeder::class);
         }
 
 

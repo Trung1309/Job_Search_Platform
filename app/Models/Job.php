@@ -19,8 +19,12 @@ class Job extends Model
         'id_trinh_do',
         'trang_thai',
         'id_doanh_nghiep',
+        'id_phuong_xa',
         'id_vi_tri',
-        'ky_nang'
+        'ky_nang',
+        'id_kinh_nghiem',
+        'so_luong',
+        'id_chung_chi'
     ];
 
     protected $primaryKey = 'id_cong_viec';
@@ -37,9 +41,6 @@ class Job extends Model
         return $this->belongsTo(Level::class,'id_trinh_do','id_trinh_do');
     }
 
-    public function wards(){
-        return $this->belongsTo(Ward::class,'id_phuong_xa','id_phuong_xa');
-    }
 
     public function bussinesses()
     {
@@ -49,5 +50,19 @@ class Job extends Model
     public function members()
     {
         return $this->hasMany(Member::class, 'id_cong_viec', 'id_cong_viec');
+    }
+
+    public function experiences()
+    {
+        return $this->belongsTo(Experience::class,'id_kinh_nghiem','id_kinh_nghiem');
+    }
+
+    public function wards()
+    {
+        return $this->belongsTo(Ward::class,'id_phuong_xa','id_phuong_xa');
+    }
+    public function certificates()
+    {
+        return $this->belongsTo(Certificate::class,'id_chung_chi','id_chung_chi');
     }
 }

@@ -26,10 +26,11 @@ class User extends Authenticatable
         'id_phuong_xa',
         'id_quyen',
         'password',
-        'kinh-nghiem',
+        'id_kinh_nghiem',
         'ky_nang',
         'hinh_dai_dien',
-        'cv'
+        'cv',
+        'id_chung_chi'
     ];
 
     protected $primaryKey = 'id_nguoi_dung';
@@ -57,6 +58,15 @@ class User extends Authenticatable
 
     public function news(){
         return $this->belongsTo(News::class,'id_nguoi_dung','id_nguoi_dung');
+    }
+
+    public function experiences()
+    {
+        return $this->belongsTo(Experience::class,'id_kinh_nghiem','id_kinh_nghiem');
+    }
+
+    public function certificates(){
+        return $this->belongsTo(Certificate::class,'id_chung_chi','id_chung_chi');
     }
 
     public function isCompany()

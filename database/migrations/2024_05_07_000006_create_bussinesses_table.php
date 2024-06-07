@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('sdt')->nullable();
             $table->unsignedBigInteger('id_phuong_xa')->nullable();
-            $table->string('so_duong')->nullable();
             $table->foreign('id_phuong_xa')->references('id_phuong_xa')->on('wards');
+            $table->string('so_duong')->nullable();
             $table->text('gioi_thieu')->nullable();
             $table->string('ma_so_thue');
             $table->unsignedBigInteger('id_nguoi_dung');

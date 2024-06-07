@@ -10,12 +10,16 @@ class Experience extends Model
     use HasFactory;
 
     protected $fillable = [
-        'ten_kinh_nghiem'
+        'so_nam'
     ];
 
-    protected $primary = 'id_kinh_nghiem';
+    protected $primaryKey = 'id_kinh_nghiem';
 
     public function users(){
         return $this->hasMany(User::class,'id_kinh_nghiem','id_kinh_nghiem');
+    }
+
+    public function jobs(){
+        return $this->hasMany(Job::class,'id_kinh_nghiem','id_kinh_nghiem');
     }
 }

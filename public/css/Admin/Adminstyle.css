@@ -8530,6 +8530,7 @@ h4.asd label {
     border-radius: 20px;
     overflow: hidden;
     display: none;
+    background: #fff;
 }
 .show-bot.active{
     display: block;

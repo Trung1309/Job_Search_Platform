@@ -12,6 +12,7 @@ class Member extends Model
     protected $fillable = [
         'id_cong_viec',
         'id_nguoi_dung',
+        'id_doanh_nghiep',
         'cv'
     ];
 

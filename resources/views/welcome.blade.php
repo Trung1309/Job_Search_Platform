@@ -198,24 +198,36 @@
             <div class="container">
                 <h1 class="title-section">Công nghệ</h1>
                 <p class="desc-section">Đa dạng công nghệ sử dụng</p>
-                <div class="owl-carousel">
-                    <div class="item">
-                        <img src="{{asset('images/tech-java.png')}}" alt="">
+                <div class="tech-slider">
+                    <div class="tech-slider-item">
+                        <div class="tech-avt">
+                            <img src="/images/tech-java.png" alt="">
+                        </div>
                     </div>
-                    <div class="item">
-                        <img src="{{asset('images/tech-js.png')}}" alt="">
+                    <div class="tech-slider-item">
+                        <div class="tech-avt">
+                            <img src="/images/tech-js.png" alt="">
+                        </div>
                     </div>
-                    <div class="item">
-                        <img src="{{asset('images/tech-nodejs.png')}}" alt="">
+                    <div class="tech-slider-item">
+                        <div class="tech-avt">
+                            <img src="/images/tech-nodejs.png" alt="">
+                        </div>
                     </div>
-                    <div class="item">
-                        <img src="{{asset('images/tech-php.png')}}" alt="">
+                    <div class="tech-slider-item">
+                        <div class="tech-avt">
+                            <img src="/images/tech-php.png" alt="">
+                        </div>
                     </div>
-                    <div class="item">
-                        <img src="{{asset('images/tech-python.png')}}" alt="">
+                    <div class="tech-slider-item">
+                        <div class="tech-avt">
+                            <img src="/images/tech-python.png" alt="">
+                        </div>
                     </div>
-                    <div class="item">
-                        <img src="{{asset('images/tech-c.png')}}" alt="">
+                    <div class="tech-slider-item">
+                        <div class="tech-avt">
+                            <img src="/images/tech-c.png" alt="">
+                        </div>
                     </div>
                 </div>
             </div>

@@ -153,6 +153,7 @@
                 </div>
             </div>
         </div>
+        @include('Chat.chat-ai')
         <!--footer-->
         @include('Admin.footer')
         <!--//footer-->

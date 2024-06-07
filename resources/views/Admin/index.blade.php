@@ -23,7 +23,7 @@
                             <i class="pull-left fa fa-users user1 icon-rounded"></i>
                             <div class="stats">
                                 <h5><strong>{{$userCount}}</strong></h5>
-                                <span>Số lượng ứng viê<nav></nav></span>
+                                <span>Số lượng ứng viên<nav></nav></span>
                             </div>
                         </div>
                     </div>

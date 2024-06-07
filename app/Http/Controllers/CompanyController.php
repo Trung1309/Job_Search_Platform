@@ -50,12 +50,10 @@ class CompanyController extends Controller
             $image = $request->file('hinh_dai_dien');
             $imageName = time().'.'.$image->getClientOriginalExtension();
             $image->move(public_path('uploads/company/'),$imageName);
-
             // Xóa hình ảnh cũ nếu tồn tại
             if (!empty($company->hinh_dai_dien && file_exists(public_path('uploads/company/' . $company->hinh_dai_dien)))) {
                 unlink(public_path('uploads/company/'.$company->hinh_dai_dien));
             }
-
             // Cập nhật thông tin sản phẩm với hình ảnh mới
             $company->update([
                 'ten_doanh_nghiep' => $request->input('ten_doanh_nghiep'),
