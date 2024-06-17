@@ -44,6 +44,17 @@
                     @endforeach
                 </ul>
             </li>
+            <div class="form-group p-15">
+                <label for="ky_nang" style="font-size: 20px; font-weight: 600;padding: 10px;">Kỹ Năng</label>
+                <select id="skills" class="form-control" name="ky_nang[]" multiple = "multiple">
+                    @foreach ($skills as $skill)
+                        <option value="{{ $skill->ten_ky_nang }}" {{ in_array($skill->ten_ky_nang, request()->input('ky_nang', [])) ? 'selected' : '' }}>{{  $skill->ten_ky_nang }}</option>
+                    @endforeach
+                </select>
+                @error('ky_nang')
+                    <small id="helpId" class="form-text text-danger">{{ $message }}</small>
+                @enderror
+            </div>
         </ul>
         <button type="submit">Tìm kiếm</button>
     </form>

@@ -9,6 +9,7 @@ use App\Models\Experience;
 use App\Models\Level;
 use App\Models\Position;
 use App\Models\Province;
+use App\Models\Skill;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 
@@ -48,6 +49,9 @@ class ViewServiceProvider extends ServiceProvider
             $view->with('levels',$levels);
             $experiences = Experience::all();
             $view->with('experiences',$experiences);
+            $skills = Skill::all();
+            $view->with('skills',$skills);
+
         });
 
         View::composer('job-filter',function($view){

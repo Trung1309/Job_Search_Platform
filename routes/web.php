@@ -41,6 +41,8 @@ Route::prefix('cong_viec')->group(function () {
     Route::get('/apply-cong-viec/{job_id}', [JobController::class,'applyJob'])->name('applyJob')->middleware('apply.check');
     Route::post('/apply-cong-viec/{job_id}', [JobController::class,'applyJobPost'])->name('applyJobPost')->middleware('apply.check');
 });
+Route::get('/cong-viec-phu-hop', [JobController::class,'getJobSuitable'])->name('getJobSuitable');
+
 
 Route::get('/cong-ty', [CompanyController::class,'getAllCompany'])->name('getAllCompany');
 Route::get('/lien-he', [ContactController::class,'index'])->name('lien-he');

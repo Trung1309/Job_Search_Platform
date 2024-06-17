@@ -69,7 +69,7 @@
                                                 $skills = explode('/',$users->ky_nang)
                                             @endphp
                                             @foreach ($skills as $skill )
-                                                <li>{{$skill}}</li>
+                                                <li>{{$users->ky_nang ? $skill : 'Chưa cập nhật'}}</li>
                                             @endforeach
                                         </ul>
                                     </td>

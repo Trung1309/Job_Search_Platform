@@ -46,7 +46,7 @@
                                     <td>{{$item->sdt}}</td>
                                     @if (Auth::user()->id_quyen == 2)
                                         <td>{{ $item->id_kinh_nghiem ? $item->experiences->so_nam : 'Chưa cập nhật'}}</td>
-                                        <td>{{$item->ky_nang}}</td>
+                                        <td>{{$item->ky_nang ? $item->ky_nang : 'Chưa cập nhật c'}}</td>
                                     @endif
                                     @if (Auth::user()->id_quyen == 3)
                                         <td>{{$item->roles->ten_quyen}}</td>
@@ -63,7 +63,6 @@
                                     </td>
                                 </tr>
                             @endforeach
-
                         </tbody>
                     </table>
                 </div>

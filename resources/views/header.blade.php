@@ -26,6 +26,14 @@
                                 <span>Công việc</span>
                             </a>
                         </li>
+                        @auth
+                        <li>
+                            <a href="{{ route('getJobSuitable')}}">
+                                <i class="fa-solid fa-bag-shopping"></i>
+                                <span>Công việc phù hợp</span>
+                            </a>
+                        </li>
+                        @endauth
                         <li>
                             <a href="{{ route('tin-tuc') }}">
                                 <i class="fa-solid fa-building"></i>
@@ -48,8 +56,13 @@
                         @endif
                         <li>
                             <div class="avt-user-pc">
-                                <img src="https://algarve.montalvoschools.com/wp-content/uploads/2023/08/default-avatar-profile-icon-of-social-media-user-vector.jpg"
+                                @if (Auth::check())
+                                    <img src="{{Auth::user()->hinh_dai_dien ? asset('uploads/users/'.Auth::user()->hinh_dai_dien) : 'https://algarve.montalvoschools.com/wp-content/uploads/2023/08/default-avatar-profile-icon-of-social-media-user-vector.jpg'}}"
                                     alt="">
+                                @else
+                                <img src="https://algarve.montalvoschools.com/wp-content/uploads/2023/08/default-avatar-profile-icon-of-social-media-user-vector.jpg"
+                                alt="">
+                                @endif
                                 <ul class="avt-option">
                                     @auth
                                         @if (Auth::user()->id_quyen === 2 || Auth::user()->id_quyen === 3  )

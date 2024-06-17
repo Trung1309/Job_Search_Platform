@@ -48,7 +48,7 @@ class AdminJobController extends Controller
     public function addJobPost(JobRequest $request){
         $bussinessID = Auth()->user()->bussinesses->id_doanh_nghiep;
         $skills = $request->input('ky_nang');
-        $skillString = implode(' / ',$skills);
+        $skillString = implode('/',$skills);
         $job = new Job([
             'ten_cong_viec' => $request->input('ten_cong_viec'),
             'mo_ta' => $request->input('mo_ta'),
@@ -92,7 +92,7 @@ class AdminJobController extends Controller
         $title = 'Cập nhật bài đăng';
         $job = Job::findOrFail($job_id);
         $skills = $request->input('ky_nang',[]);
-        $skillString = implode(' / ',$skills);
+        $skillString = implode('/',$skills);
         $job->update([
             'ten_cong_viec' => $request->input('ten_cong_viec'),
             'mo_ta' => $request->input('mo_ta'),

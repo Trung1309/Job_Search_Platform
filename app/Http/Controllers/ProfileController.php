@@ -28,7 +28,7 @@ class ProfileController extends Controller
     public function updateProfileUserPost(UserRequest $request, $user_id){
         $users = User::findOrFail($user_id);
         $skills = $request->input('ky_nang');
-        $skillString = implode(' / ',$skills);
+        $skillString = implode('/',$skills);
         $dataToUpdate = [
             'ho_ten' => $request->input('ho_ten'),
             'ngay_sinh' => $request->input('ngay_sinh'),

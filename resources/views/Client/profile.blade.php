@@ -173,10 +173,12 @@
                                                             $selectedSkill = explode('/',Auth::user()->ky_nang);
                                                         @endphp
                                                         @foreach ($selectedSkill as $dataSkill)
-                                                            <option value="{{ Auth::user()->ky_nang ? $dataSkill : '' }}" selected>{{ Auth::user()->ky_nang ? $dataSkill : ''  }}</option>
+                                                        @if (!empty(Auth::user()->ky_nang))
+                                                            <option value="{{ $dataSkill }}" selected>{{ $dataSkill }}</option>
+                                                        @endif
                                                         @endforeach
                                                         @foreach ($skill as $key => $item)
-                                                            @if (!in_array($item->ten_ky_nang,$selectedSkill))
+                                                            @if (!in_array($item->ten_ky_nang, $selectedSkill))
                                                                 <option value="{{ $item->ten_ky_nang }}">{{ $item->ten_ky_nang }}</option>
                                                             @endif
                                                         @endforeach

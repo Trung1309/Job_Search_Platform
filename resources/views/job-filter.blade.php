@@ -72,6 +72,9 @@
                                                     <li><i class="fa-solid fa-location-dot"></i>
                                                         {{'Q.'.$item->wards->districts->ten_quan_huyen. ' - TP.'.$item->wards->districts->provinces->ten_tinh_thanh}}
                                                     </li>
+                                                    <li><i class="fa-solid fa-calendar"></i></i>
+                                                        Kinh nghiệm:  {{$item->experiences->so_nam}}
+                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>

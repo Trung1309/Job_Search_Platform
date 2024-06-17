@@ -45,8 +45,9 @@ class MemberController extends Controller
 
         $candidates = User::where(function($query) use ($jobSkills){
             foreach($jobSkills as $skill){
-                $query->orWhere('ky_nang','LIKE','%' .$skill.'%');
+                $query->where('ky_nang','LIKE','%'.$skill.'%');
             }
+
         })
         // ->where('id_kinh_nghiem',$job->id_kinh_nghiem)
         ->get();

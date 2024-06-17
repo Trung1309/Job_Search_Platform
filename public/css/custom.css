@@ -85,3 +85,7 @@
     border-radius: 5px;
     border: 1px solid #f39c12;
 }
+
+.select2-container--default .select2-selection--multiple{
+    height: 70px;
+}

@@ -29,46 +29,51 @@
                                 </form>
                             </div>
                             <div class="company-cards">
-                                @foreach ($job as $key => $item)
-                                <div class="company-item">
-                                    <div class="company-content">
-                                        <a href="{{route('showDetailJob',$item->id_cong_viec)}}" class="company-title">{{$item->ten_cong_viec}}</a>
-                                        <div class="company-name">{{$item->bussinesses->ten_doanh_nghiep}}</div>
-                                        <ul class="company-skill">
-                                            @php
-                                                $skills = explode('/',$item->ky_nang)
-                                            @endphp
-                                            @foreach ($skills as $skill )
-                                                <li>{{$skill}}</li>
-                                            @endforeach
-                                        </ul>
-                                        <div class="company-desc">
-                                            {!!$item->mo_ta!!}
+                                @if (count($job)>0)
+                                    @foreach ($job as $key => $item)
+                                    <div class="company-item">
+                                        <div class="company-content">
+                                            <a href="{{route('showDetailJob',$item->id_cong_viec)}}" class="company-title">{{$item->ten_cong_viec}}</a>
+                                            <div class="company-name">{{$item->bussinesses->ten_doanh_nghiep}}</div>
+                                            <ul class="company-skill">
+                                                @php
+                                                    $skills = explode('/',$item->ky_nang)
+                                                @endphp
+                                                @foreach ($skills as $skill )
+                                                    <li>{{$skill}}</li>
+                                                @endforeach
+                                            </ul>
+                                            <div class="company-desc">
+                                                {!!$item->mo_ta!!}
+                                            </div>
+                                            <ul class="company-bottom">
+                                                <li><i class="fa-solid fa-dollar-sign"></i>
+                                                {{$item->muc_luong}}
+                                                </li>
+                                                <li><i class="fa-solid fa-location-dot"></i>
+                                                    {{'Q.'.$item->wards->districts->ten_quan_huyen. ' - TP.'.$item->wards->districts->provinces->ten_tinh_thanh}}
+                                                </li>
+                                                <li><i class="fa-solid fa-calendar"></i></i>
+                                                    Kinh nghiệm:  {{$item->experiences->so_nam}}
+                                                </li>
+                                            </ul>
                                         </div>
-                                        <ul class="company-bottom">
-                                            <li><i class="fa-solid fa-dollar-sign"></i>
-                                               {{$item->muc_luong}}
-                                            </li>
-                                            <li><i class="fa-solid fa-location-dot"></i>
-                                                {{'Q.'.$item->wards->districts->ten_quan_huyen. ' - TP.'.$item->wards->districts->provinces->ten_tinh_thanh}}
-                                            </li>
-                                            <li><i class="fa-solid fa-calendar"></i></i>
-                                                Kinh nghiệm:  {{$item->experiences->so_nam}}
-                                             </li>
-                                        </ul>
+                                    </div>
+                                    @endforeach
+                                @else
+                                    <p class="text-center">Không có công việc nào phù hợp với bạn</p>
+                                @endif
+                            </div>
+                            @if (count($job)>0)
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <p>Đang ở trang {{ $job->currentPage() }} trên tổng số {{ $job->lastPage() }} trang</p>
                                     </div>
                                 </div>
-                                @endforeach
-
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <p>Đang ở trang {{ $job->currentPage() }} trên tổng số {{ $job->lastPage() }} trang</p>
+                                <div class="paginate">
+                                    {{ $job->links('pagination::bootstrap-4') }}
                                 </div>
-                            </div>
-                            <div class="paginate">
-                                {{ $job->links('pagination::bootstrap-4') }}
-                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>
