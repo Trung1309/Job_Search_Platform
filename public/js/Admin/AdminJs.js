@@ -17,3 +17,5 @@ avtNews.addEventListener('change', function() {
 
 // up hình đại diện
 
+
+

@@ -75,6 +75,7 @@ class JobController extends Controller
             'id_cong_viec' => $job_id,
             'id_nguoi_dung' => $user_id,
             'id_doanh_nghiep' => $company_id,
+            'trang_thai' => 'Đang chờ',
             'cv' => $cvName
         ]);
         $member->save();

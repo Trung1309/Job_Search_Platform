@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\TestMailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CompanyController;
@@ -84,7 +85,19 @@ Route::group(['prefix' => 'quan-li', 'middleware' => 'auth.admin','check.role'],
 
     Route::prefix('ung-vien-phu-hop')->group(function () {
         Route::get('/{job_id}',[MemberController::class,'getMemberSuitableMyJob'])->name('getMemberSuitableMyJob');
-        Route::get('/thong-tin-ung-vien/{member_id}',[MemberController::class,'getDetailMemberSuitable'])->name('getDetailMemberSuitable');
+    });
+    Route::get('/thong-tin-ung-vien/{member_id}',[MemberController::class,'getDetailMemberSuitable'])->name('getDetailMemberSuitable');
+    Route::prefix('ung-vien')->group(function(){
+        Route::post('/xac-nhan/{id}',[MemberController::class,'acceptMember'])->name('acceptMember');
+        Route::post('/xac-nhan-ung-vien/{id}',[MemberController::class,'acceptMemberWorking'])->name('acceptMemberWorking');
+        Route::get('/dat-lich/{id_ung_vien}',[MemberController::class,'memberSchedule'])->name('memberSchedule');
+        Route::get('/dat-lich-lam-viec/{id_ung_vien}',[MemberController::class,'memberScheduleWorking'])->name('memberScheduleWorking');
+        Route::post('/loai-bo/{id}',[MemberController::class,'rejectedMember'])->name('rejectedMember');
+    });
+
+
+    Route::prefix('ho_so_ung_tuyen')->group(function () {
+        Route::get('/{job_id}',[MemberController::class,'getMemberApplyJob'])->name('getMemberApplyJob');
     });
 
     Route::get('/dang-bai-tuyen-dung',[AdminJobController::class,'addJob'])->name('addJob');
@@ -142,4 +155,6 @@ Route::get('get-districts/{province_id}', [Locaticontroller::class ,'getDistrict
 Route::get('get-wards/{district_id}', [Locaticontroller::class ,'getWards']);
 
 Route::get('get-certificate/{certificate_id}', [LanguageController::class ,'getCertificate']);
+Route::post('/test', [TestMailController::class ,'testEmail'])->name('testEmail');
+
 

@@ -27,12 +27,14 @@
                             </a>
                         </li>
                         @auth
-                        <li>
-                            <a href="{{ route('getJobSuitable')}}">
-                                <i class="fa-solid fa-bag-shopping"></i>
-                                <span>Công việc phù hợp</span>
-                            </a>
-                        </li>
+                            @if (Auth::user()->id_quyen == 1)
+                                <li>
+                                    <a href="{{ route('getJobSuitable')}}">
+                                        <i class="fa-solid fa-bag-shopping"></i>
+                                        <span>Công việc phù hợp</span>
+                                    </a>
+                                </li>
+                            @endif
                         @endauth
                         <li>
                             <a href="{{ route('tin-tuc') }}">

@@ -30,6 +30,7 @@ return new class extends Migration
             $table->foreign('id_vi_tri')->references('id_vi_tri')->on('positions');
             $table->unsignedBigInteger('id_phuong_xa')->nullable();
             $table->foreign('id_phuong_xa')->references('id_phuong_xa')->on('wards');
+            $table->string('so_duong')->nullable();
             $table->string('ky_nang');
             $table->unsignedBigInteger('id_kinh_nghiem')->nullable();
             $table->foreign('id_kinh_nghiem')->references('id_kinh_nghiem')->on('experiences');
@@ -39,7 +40,6 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

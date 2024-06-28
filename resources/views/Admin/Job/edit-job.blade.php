@@ -140,6 +140,14 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="so_duong ">Số đường</label>
+                                        <input value="{{$job->so_duong ? $job->so_duong : ''}}" type="text" name="so_duong" id="so_duong" class="form-control" placeholder="Số đường"
+                                            aria-describedby="helpId">
+                                        @error('so_duong')
+                                            <small id="helpId" class="form-text text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
                                     <div class="form-group ">
                                         <label for="so_luong ">Số lượng</label>
                                         <input value="{{$job->so_luong}}" type="number" name="so_luong" id="so_luong" class="form-control" placeholder="Số lượng"

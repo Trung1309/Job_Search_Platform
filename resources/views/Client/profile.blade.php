@@ -54,7 +54,7 @@
                                                 <div class="form-group">
                                                     <label for="email">Email</label>
                                                     <input name="email" value="{{ Auth::user()->email }}" type="email" class="form-control"
-                                                        id="eMail" placeholder="Nhập Email">
+                                                        id="eMail" placeholder="Nhập Email" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">

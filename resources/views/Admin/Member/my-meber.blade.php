@@ -7,6 +7,14 @@
         <!-- //header-ends -->
         <!-- main content start-->
         <div id="page-wrapper">
+            <div class="search-form">
+                <form action="" method="get">
+                    <div class="form-group" style="display: flex; width: 30%;">
+                        <input type="text" class="form-control" placeholder="Nhập từ khoá" class="">
+                        <button type="submit" class="btn btn-orange"> Tìm kiếm</button>
+                    </div>
+                </form>
+            </div>
             <div class="main-page">
                 <div class="charts-grids">
                     <h1 class="text-center" style="margin-bottom: 20px">{{$title}}</h1>
@@ -27,21 +35,9 @@
                                     <td>{{$item->users->ho_ten}}</td>
                                     <td>{{$item->jobs->ten_cong_viec}}</td>
                                     <td>{{$item->users->ky_nang}}</td>
-
                                     <td>
                                         <div class="option-btn d-flex" style="display: flex; justify-content: center; align-items: center">
-                                            <form action="" method="POST" style="margin-right: 10px">
-                                                @csrf
-                                                <button onclick="return confirm('Bạn có chắc chắn muốn xoá ứng viên}} ?')"
-                                                    type="submit" class="btn btn-success"><i class="fa-solid fa-check"></i></button>
-                                            </form>
-                                            <form action="{{route('deleteMember',$item->id_nguoi_dung)}}" method="POST" style="margin-right: 10px">
-                                                @csrf
-                                                <button onclick="return confirm('Bạn có chắc chắn muốn xoá ứng viên}} ?')"
-                                                    type="submit" class="btn btn-danger"><i class="fa-solid fa-x"></i></button>
-                                            </form>
                                             <a href="{{route('getDetailMemberSuitable',$item->id_nguoi_dung)}}" class="btn btn-primary" style="margin-right: 10px"><i class="fa-solid fa-eye"></i></a>
-
                                         </div>
                                     </td>
                                 </tr>

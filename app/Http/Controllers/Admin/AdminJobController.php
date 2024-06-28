@@ -60,6 +60,7 @@ class AdminJobController extends Controller
             'id_vi_tri' => $request->input('id_vi_tri'),
             'id_kinh_nghiem' => $request->input('id_kinh_nghiem'),
             'id_phuong_xa' => $request->input('id_phuong_xa'),
+            'so_duong' => $request->input('so_duong'),
             'ky_nang' => $skillString,
             'so_luong' => $request->input('so_luong'),
             'id_chung_chi' => $request->input('id_chung_chi')
@@ -103,6 +104,7 @@ class AdminJobController extends Controller
             'id_vi_tri' => $request->input('id_vi_tri'),
             'id_kinh_nghiem' => $request->input('id_kinh_nghiem'),
             'id_phuong_xa' => $request->input('id_phuong_xa'),
+            'so_duong' => $request->input('so_duong'),
             'ky_nang' => $skillString,
             'so_luong' => $request->input('so_luong'),
             'id_chung_chi' => $request->input('id_chung_chi')

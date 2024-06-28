@@ -13,7 +13,8 @@ class Member extends Model
         'id_cong_viec',
         'id_nguoi_dung',
         'id_doanh_nghiep',
-        'cv'
+        'cv',
+        'trang_thai'
     ];
 
     protected $primaryKey = 'id_ung_vien';

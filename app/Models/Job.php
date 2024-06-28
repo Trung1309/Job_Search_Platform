@@ -16,6 +16,7 @@ class Job extends Model
         'id_the_loai',
         'muc_luong',
         'id_phuong_xa',
+        'so_duong',
         'id_trinh_do',
         'trang_thai',
         'id_doanh_nghiep',

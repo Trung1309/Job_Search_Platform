@@ -35,6 +35,7 @@ class JobRequest extends FormRequest
             'ky_nang' => 'required',
             'id_kinh_nghiem' => 'required',
             'id_phuong_xa' => 'required',
+            'so_duong' => 'required',
             'so_luong' => 'required',
             'id_chung_chi' => 'required'
 
@@ -60,6 +61,7 @@ class JobRequest extends FormRequest
             'id_kinh_nghiem' => 'Số năm kinh nghiệm',
             'id_phuong_xa' => 'Phường xã',
             'so_luong' => 'Số lượng',
+            'so_duong' => 'Số đường',
             'id_chung_chi' => 'Chứng chỉ'
         ];
     }

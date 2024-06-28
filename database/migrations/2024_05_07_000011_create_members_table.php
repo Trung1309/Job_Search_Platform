@@ -22,6 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_doanh_nghiep');
             $table->foreign('id_doanh_nghiep')->references('id_doanh_nghiep')->on('bussinesses');
             $table->string('cv')->nullable();
+            $table->string('trang_thai')->default('Đang chờ')->nullable();
             $table->timestamps();
         });
     }

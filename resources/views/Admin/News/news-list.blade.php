@@ -8,15 +8,16 @@
         <!-- main content start-->
         <div id="page-wrapper">
             <div class="main-page">
-                <div class="charts-grids">
-
-                    <h1 class="text-center" style="margin-bottom: 20px">{{ $title }}</h1>
+                <div class="search-form">
                     <form action="" method="get">
                         <div class="form-group" style="display: flex; width: 30%;">
                             <input type="text" class="form-control" placeholder="Nhập từ khoá" class="">
                             <button type="submit" class="btn btn-orange"> Tìm kiếm</button>
                         </div>
                     </form>
+                </div>
+                <div class="charts-grids">
+                    <h1 class="text-center" style="margin-bottom: 20px">{{ $title }}</h1>
                     @if (Session::has('success'))
                         <div class="alert alert-success">{{ Session::get('success') }}</div>
                     @endif

@@ -2,6 +2,7 @@
 @section('content')
 @include('header')
     <main>
+
         <section id="section-about">
             <div class="section-slider">
                 <div class="container">
